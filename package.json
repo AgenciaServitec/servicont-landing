@@ -1,5 +1,5 @@
 {
-  "name": "agreeable-atmosphere",
+  "name": "eces_landing",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,6 +10,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.9.2"
+    "@astrojs/netlify": "^5.2.0",
+    "@astrojs/partytown": "^2.1.0",
+    "@astrojs/react": "^3.0.7",
+    "@fontsource-variable/noto-sans-georgian": "^5.0.22",
+    "astro": "^4.9.2",
+    "astro-icon": "^0.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.3",
+    "sass": "^1.69.4"
   }
 }
