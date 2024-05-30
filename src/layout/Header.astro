@@ -1,0 +1,209 @@
+---
+import Icon from "astro-icon";
+import { IconFontAwesome } from "../components";
+import Drawer from "./Drawer";
+---
+
+<header id="header-item" class="header-general">
+    <div class="header-wrapper">
+        <div class="top-header">
+            <div class="contact-info">
+                <ul>
+                    <li>
+                        <div>
+                            <a href="mailto:contacto@eces.com.pe" class="anchor-icon">
+                                <Icon class="icon" pack="mdi" name="email" size={19} />
+                                Email: contacto@eces.com.pe
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="tel:900959965" class="anchor-icon">
+                                <Icon class="icon" pack="mdi" name="phone" size={19} />
+                                Teléfono: 975 099 628
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="menu-bar">
+            <div class="img-logo">
+                <a href="/" rel="noopener noreferrer">
+                    <h1 style="display: none;">Mifan Llantas</h1>
+                    <img src="/logo.webp" alt="Logo Multillantas MF Peru" width="200px" />
+                </a>
+            </div>
+
+            <div class="item-menu">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/service">Servicio</a></li>
+                    <li><a href="/about-us">Nosotros</a></li>
+                    <li><a href="/plans">Planes</a></li>
+                    <li><a href="/contact">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="item-menu-button">
+                <Drawer client:visible>
+                    <IconFontAwesome
+                            width="30px"
+                            path="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+                    />
+                </Drawer>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<style lang="scss">
+  //MOBILE AND TABLET
+  .header-general {
+    width: 100%;
+    height: auto;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+
+
+    .header-wrapper {
+      width: 100%;
+
+    }
+
+
+    .menu-bar{
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .item-menu-button {
+
+        background: #fff;
+        color: #000;
+
+      }
+
+    }
+    .top-header {
+
+      .img-logo {
+
+        img {
+          width: 7em;
+          height: auto;
+          object-fit: contain;
+        }
+
+      }
+
+      .contact-info {
+        background: #fff;
+        @media (min-width: 970px) {
+          background: transparent;
+        }
+      }
+
+      .anchor-icon {
+        .icon {
+          color: var(--color-primary);
+        }
+      }
+
+      ul {
+        background: #0d77C1;
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        list-style: none;
+            padding: 0;
+            margin: 0;
+      }
+
+      span,
+      a {
+
+        color:  white;
+        text-decoration: auto;
+      }
+    }
+
+    .item-menu {
+      display: none;
+    }
+  }
+
+  //DESKTOP
+  @media (min-width: 920px) {
+    .header-general {
+      position: relative;
+      background: white;
+      top: 0;
+      z-index: 700;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1530px;
+      margin: auto;
+      .item-menu-button {
+        display: none;
+      }
+
+      .top-header {
+        display: flex;
+        justify-content: center;
+        background: #0d77C1;
+        ul {
+          gap: 15em;
+          li {
+            span,
+            a {
+              color: white;
+            }
+          }
+        }
+      }
+
+
+    .menu-bar{
+      padding: 1em 0;
+      width: 100%;
+      display: flex;
+      background: #fff;
+      justify-content: space-between;
+        .img-logo {
+             img {
+            width: 10em;
+            height: auto;
+            object-fit: contain;
+          }
+        }
+
+      .item-menu {
+        display: flex;
+        gap: 2em;
+        font-size: 1.5em;
+        font-weight: 500;
+
+        ul {
+          list-style: none;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          gap: 2em;
+
+          li a {
+            text-decoration: none;
+            color: #0d77C1;
+          }
+        }
+      }
+    }
+    }
+  }
+</style>

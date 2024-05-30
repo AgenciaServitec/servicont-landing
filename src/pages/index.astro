@@ -1,16 +1,69 @@
 ---
-
+import {BaseLayout} from  "../layout";
 ---
+<BaseLayout>
+    <main>
+        <div class="banner-wrapper">
+            <img src="/images/banner-1.webp" alt="banner" />
+        </div>
+    </main>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>E.C.E.S</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <style lang="scss">
+      //MOBILE AND TABLET
+      main {
+        .banner-wrapper {
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 100%;
+          max-width: 1530px;
+          min-height: 70vh;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 100;
+          }
+          .wrapper-content {
+            width: 90%;
+            margin: auto;
+            color: #fff;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            @media (min-width: 920px) {
+              width: 60%;
+            }
+            .quote-wrapper {
+              padding: 2em 0 0 0;
+              a {
+                text-decoration: auto;
+              }
+            }
+          }
+        }
+      }
+
+      //DESKTOP
+      @media (min-width: 920px) {
+        main {
+          .banner-wrapper {
+            img {
+              width: 100%;
+              height: 70vh;
+            }
+          }
+        }
+      }
+    </style>
+</BaseLayout>

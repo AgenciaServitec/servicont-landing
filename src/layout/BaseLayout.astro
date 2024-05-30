@@ -1,0 +1,45 @@
+---
+import Header from "./Header.astro";
+interface Props {
+    title?: string;
+    description?: string;
+    keywords?: string;
+    googleTag?: boolean;
+}
+
+const {
+    title = "Estudio Contable - Contador",
+    description = "La contabilidad es nuestra pasión. Vivimos para servir. Fortalecemos tu proyectos y emprendimientos brindándote excelente asesoría administrativa y contable con mas de 20 años de experiencia.",
+    keywords = "venta de llantas,venta llanta, llantas de auto, llantas precios, llantas en lima, ofertas de llantas, venta de neumaticos, promociones de llantas, neumáticos para autos, llantas para autos precios, llantas aro, llantas aro 15, lima caucho, dunlop tires, continental, michelin, hankook, continental, pirelli, yokohama, goodyear, tires, falken, bridgestone, firestone, sumitomo, triangle, westlake, gt radial, aeolus, delinte, federal, general tire, kumho tire, nexen tires, toyo tires",
+    googleTag,
+} = Astro.props;
+
+
+
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+</head>
+<body>
+
+ <Header />
+
+
+<slot />
+</body>
+</html>
+
+<style lang="scss">
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+</style>
