@@ -2,67 +2,61 @@
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 interface Props {
-    title?: string;
-    description?: string;
-    keywords?: string;
-    googleTag?: boolean;
+  title?: string;
+  description?: string;
+  keywords?: string;
+  googleTag?: boolean;
 }
 
 const {
-    title = "Estudio Contable - Contador",
-    description = "La contabilidad es nuestra pasión. Vivimos para servir. Fortalecemos tu proyectos y emprendimientos brindándote excelente asesoría administrativa y contable con mas de 20 años de experiencia.",
-    keywords = "venta de llantas,venta llanta, llantas de auto, llantas precios, llantas en lima, ofertas de llantas, venta de neumaticos, promociones de llantas, neumáticos para autos, llantas para autos precios, llantas aro, llantas aro 15, lima caucho, dunlop tires, continental, michelin, hankook, continental, pirelli, yokohama, goodyear, tires, falken, bridgestone, firestone, sumitomo, triangle, westlake, gt radial, aeolus, delinte, federal, general tire, kumho tire, nexen tires, toyo tires",
-    googleTag,
+  title = "Estudio Contable - Contador",
+  description = "La contabilidad es nuestra pasión. Vivimos para servir. Fortalecemos tu proyectos y emprendimientos brindándote excelente asesoría administrativa y contable con mas de 20 años de experiencia.",
+  keywords = "venta de llantas,venta llanta, llantas de auto, llantas precios, llantas en lima, ofertas de llantas, venta de neumaticos, promociones de llantas, neumáticos para autos, llantas para autos precios, llantas aro, llantas aro 15, lima caucho, dunlop tires, continental, michelin, hankook, continental, pirelli, yokohama, goodyear, tires, falken, bridgestone, firestone, sumitomo, triangle, westlake, gt radial, aeolus, delinte, federal, general tire, kumho tire, nexen tires, toyo tires",
+  googleTag,
 } = Astro.props;
-
-
-
 ---
 
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-</head>
-<body>
-<div class="general-wrapper">
-    <Header />
-    <div class="main">
+  </head>
+  <body>
+    <div class="general-wrapper">
+      <Header />
+      <div class="main">
         <slot />
+      </div>
+      <Footer />
     </div>
-    <Footer />
-</div>
-<style is:global lang="scss">
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Noto Sans Georgian Variable", sans-serif;
-  }
+    <style is:global lang="scss">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Noto Sans Georgian Variable", sans-serif;
+      }
 
+      body {
+        margin: 0;
+        font-size: 16px;
+      }
 
+      .general-wrapper {
+        max-width: 1530px;
+        margin: auto;
+        position: relative;
+        background-color: var(--color-tertiary);
+      }
 
-  body {
-    margin: 0;
-    font-size: 16px;
-  }
-
-  .general-wrapper {
-    max-width: 1530px;
-    margin: auto;
-    position: relative;
-    background-color: var(--color-tertiary);
-  }
-
-  .main {
-    width: 100%;
-    height: auto;
-  }
-
-        </style>
-    </body>
+      .main {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </body>
 </html>

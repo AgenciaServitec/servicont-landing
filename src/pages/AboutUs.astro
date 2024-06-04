@@ -1,0 +1,144 @@
+---
+
+---
+
+<section id="about-us">
+  <h2>¿QUIENES SOMOS?</h2>
+  <div class="content-about-us">
+    <div class="content-img">
+      <div class="content-img__image">
+        <img
+          src="/images/about.webp"
+          class="content-img__image-bg"
+          alt="Nosotros"
+        />
+        <img src="/images/linea.webp" class="content-img__image-lines" />
+      </div>
+    </div>
+
+    <div class="content-text">
+      <p>
+        La contabilidad es nuestra pasión. Vivimos para servir. Fortalecemos tu
+        proyectos y emprendimientos brindándote excelente asesoría
+        administrativa y contable con mas de 20 años de experiencia.
+      </p>
+      <p>
+        <strong>¡Tenemos como prioridad brindarte el mejor servicio!</strong>
+      </p>
+    </div>
+    <div class="line"></div>
+  </div>
+</section>
+
+<style>
+  section {
+    background: white;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2 {
+    color: blue;
+    font-size: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  .content-about-us {
+    background: #0d77c1;
+    color: white;
+    display: flex;
+    padding: 2em 2em 0.5em 1em;
+    margin: 20px 0;
+
+    .content-img {
+      position: relative;
+      width: 60%;
+
+      .content-img__image {
+        width: 100%;
+        box-shadow: 5px 15px 6px rgba(0, 0, 0, 0.3);
+        position: relative;
+        bottom: 70px;
+        border-radius: 2em;
+        overflow: hidden;
+      }
+
+      .content-img__image::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .content-img__image-bg {
+        width: 100%;
+        height: auto;
+      }
+
+      .content-img__image-lines {
+        position: absolute;
+        bottom: 6em;
+        left: 0;
+        z-index: 1000;
+      }
+    }
+
+    .content-text {
+      width: 40%;
+
+      p {
+        margin: 1em;
+        font-size: 1.5em;
+        position: relative;
+        bottom: 20px;
+        text-align: justify;
+      }
+    }
+
+    .line {
+      border-bottom: 3px solid #ffffff;
+      width: 5em;
+      margin-bottom: 1.5em;
+    }
+  }
+
+  @media (max-width: 800px) {
+    padding: 0;
+    margin: 0;
+    h2 {
+      font-size: 2.5em;
+    }
+
+    .content-about-us {
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(22em, 1fr));
+
+      .content-img {
+        width: 100%;
+
+        .content-img__image-lines {
+          width: 50%;
+          position: absolute;
+          bottom: 5em;
+          left: 0;
+          z-index: 1000;
+        }
+      }
+
+      .content-text {
+        margin: 0;
+        width: 100%;
+        font-size: 0.8em;
+      }
+    }
+  }
+</style>
