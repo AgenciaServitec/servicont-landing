@@ -1,0 +1,66 @@
+---
+const { slides = [] } = Astro.props;
+---
+
+<script>
+  import "swiper/css";
+  import Swiper from "swiper";
+  import { register } from "swiper/element/bundle";
+  register();
+
+  new Swiper("#mySwiper", {
+    autoplay: true,
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+<!-- Swiper -->
+<div class="swiper" id="mySwiper">
+  <div class="swiper-wrapper">
+    {
+      slides.map((slide, index) => (
+        <div key={index} class="swiper-slide">
+          <img src={slide.src} alt={slide.alt} />
+        </div>
+      ))
+    }
+  </div>
+  <div class="swiper-button-prev"><-</div>
+  <div class="swiper-button-next">-></div>
+</div>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    .swiper-slide {
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      cursor: pointer;
+      position: absolute;
+      color: blue;
+      z-index: 300;
+      top: 50%;
+      font-size: 2em;
+    }
+    .swiper-button-prev {
+      left: 3%;
+    }
+    .swiper-button-next {
+      right: 3%;
+    }
+  }
+</style>
