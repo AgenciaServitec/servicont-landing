@@ -1,4 +1,5 @@
 ---
+import Icon from "astro-icon";
 const { slides = [] } = Astro.props;
 ---
 
@@ -29,8 +30,22 @@ const { slides = [] } = Astro.props;
       ))
     }
   </div>
-  <div class="swiper-button-prev"><-</div>
-  <div class="swiper-button-next">-></div>
+  <div class="swiper-button-prev">
+    <Icon
+        class="icon"
+        pack="ic"
+        name="twotone-keyboard-arrow-left"
+        size={49}
+    />
+  </div>
+  <div class="swiper-button-next">
+    <Icon
+        class="icon"
+        pack="ic"
+        name="twotone-keyboard-arrow-right"
+        size={49}
+    />
+  </div>
 </div>
 
 <style>
@@ -51,7 +66,7 @@ const { slides = [] } = Astro.props;
     .swiper-button-next {
       cursor: pointer;
       position: absolute;
-      color: blue;
+      color: #d0d0d3;
       z-index: 300;
       top: 50%;
       font-size: 2em;
@@ -61,6 +76,18 @@ const { slides = [] } = Astro.props;
     }
     .swiper-button-next {
       right: 3%;
+    }
+    @media (max-width: 480px) {
+      .swiper {
+        height: 40vh;
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          font-size: 1.2em;
+          left: 8%;
+          right: 8%;
+        }
+      }
     }
   }
 </style>
