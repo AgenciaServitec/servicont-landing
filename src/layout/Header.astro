@@ -85,6 +85,24 @@ import Drawer from "./Drawer";
       }
     }
     .top-header {
+      background: #0d77c1;
+      padding: 0.5em;
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+        > li {
+          list-style: none;
+          span,
+          a {
+            font-size: 0.7em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: white;
+            gap: 0.5em;
+          }
+        }
+      }
       .img-logo {
         img {
           width: 7em;
@@ -93,12 +111,6 @@ import Drawer from "./Drawer";
         }
       }
 
-      .contact-info {
-        background: #fff;
-        @media (min-width: 970px) {
-          background: transparent;
-        }
-      }
 
       .anchor-icon {
         .icon {
@@ -106,21 +118,9 @@ import Drawer from "./Drawer";
         }
       }
 
-      ul {
-        background: #0d77c1;
-        display: flex;
-        justify-content: center;
-        gap: 1em;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
 
-      span,
-      a {
-        color: white;
-        text-decoration: auto;
-      }
+
+
     }
 
     .item-menu {
@@ -135,8 +135,6 @@ import Drawer from "./Drawer";
       background: white;
       top: 0;
       z-index: 700;
-      display: flex;
-      justify-content: space-between;
       width: 100%;
       max-width: 1530px;
       margin: auto;
@@ -145,15 +143,19 @@ import Drawer from "./Drawer";
       }
 
       .top-header {
-        display: flex;
-        justify-content: center;
         background: #0d77c1;
+        padding: 0.7em;
         ul {
-          gap: 15em;
+          justify-content: space-evenly;
+
           > li {
             span,
             a {
+              font-size: 1em;
+              display: flex;
+              align-items: center;
               color: white;
+              gap: 0.5em;
             }
           }
         }
