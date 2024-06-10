@@ -4,7 +4,7 @@ export const services = {
     "Presentaciones Tributarias.",
     "Asesoría Contable – Tributaria.",
     "Control Interno.",
-    "Actualización de Registros y Libros Contables.",
+
     "Preparación de Estados Financieros.",
     "Declaración de Impuestos.",
   ],
@@ -22,11 +22,9 @@ export const services = {
   ],
   others: [
     "Asesoría Jurídica en lo Civil.",
-    "Asesoría en la Ley General de Sociedades.",
     "Asesoría ante Registros Públicos.",
     "Asesoría ante Notarías.",
-    "Negociación y Administración de Contratos",
     "Evaluación de Puestos de Trabajo.",
-    "Cobranzas difíciles de Letras, Facturas, etc.",
+
   ],
 };
