@@ -19,7 +19,7 @@ import Icon from "astro-icon";
         </p>
       </div>
       <a href="">
-        <Icon class="icon" pack="ep" name="arrow-right-bold" size={19} />
+        <Icon class="icon" pack="ep" name="arrow-right-bold" size={15} />
         <span> Mas Informacion</span>
       </a>
     </article>
@@ -36,7 +36,7 @@ import Icon from "astro-icon";
         </p>
       </div>
       <a href="">
-        <Icon class="icon" name="ep:arrow-right-bold" size={19} />
+        <Icon class="icon" name="ep:arrow-right-bold" size={15} />
         <span> Mas Informacion</span>
       </a>
     </article>
@@ -54,7 +54,7 @@ import Icon from "astro-icon";
         </p>
       </div>
       <a href="">
-        <Icon class="icon" name="ep:arrow-right-bold" size={19} />
+        <Icon class="icon" name="ep:arrow-right-bold" size={15} />
         <span> Mas Informacion</span>
       </a>
     </article>
@@ -98,7 +98,6 @@ import Icon from "astro-icon";
       }
 
       p:nth-child(2) {
-        text-align: justify;
         font-size: 1.2em;
       }
     }
@@ -107,9 +106,14 @@ import Icon from "astro-icon";
       color: black;
       border: 1px solid black;
       border-radius: 2em;
-      padding: 0.5em 1em;
+      padding: 0.3em 0.5em;
       display: inline-flex;
+      align-items: center;
+      gap: 0.2em;
       margin-top: 1em;
+        span{
+            font-size: 0.8em;
+        }
     }
   }
 </style>
