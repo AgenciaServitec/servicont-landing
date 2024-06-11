@@ -74,12 +74,21 @@ if (Astro.request.method === "POST") {
                     number: formData?.[3].value || "",
                 },
                 message: formData?.[4].value || "",
-                hostname: "venta-llantas.com",
+                hostname: "eces.pe",
             },
         });
 
 
+        await fetch("https://api-servitecsales.web.app/emails/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify(mapContact(formData)),
+        });
 
+        return Astro.redirect("/quotes");
 
     } catch (error) {
         if (error instanceof Error) {
