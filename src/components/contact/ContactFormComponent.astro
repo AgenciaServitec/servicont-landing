@@ -14,6 +14,11 @@ const { errors  } = Astro.props;
         {errors?.email && <p>{errors.email}</p>}
     </div>
     <div class="item-wrapper">
+        <label for="fullName">Empresa</label>
+        <input type="text" id="company" name="company" />
+        {errors?.company && <p>{errors.company}</p>}
+    </div>
+    <div class="item-wrapper">
         <label for="phoneNumber">Teléfono</label>
         <input type="text" id="phoneNumber" name="phoneNumber" />
         {errors?.phoneNumber && <p>{errors.phoneNumber}</p>}
