@@ -1,0 +1,1 @@
+export { default as QuotesFormComponent } from "./QuotesFormComponent.astro";

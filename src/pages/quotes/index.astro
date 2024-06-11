@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../../layout/BaseLayout.astro";
+import {QuotesFormComponent} from "../../components";
+---
+<BaseLayout>
+
+        <section>
+            <h2>Realiza una cotizacion</h2>
+            <div class="error-message-wrapper" id="error-message-wrapper"></div>
+            <div class="wrapper-quotes">
+                <div class="quotes-images">
+                    <img src="/images/bgcotizacion-2.webp" alt="">
+                </div>
+
+                <div class="quotes-form">
+                    <QuotesFormComponent key={new Date()} />
+                </div>
+            </div>
+        </section>
+</BaseLayout>
+
+<style lang="scss">
+    section{
+        h2 {
+
+            padding: 0.5em 0;
+            font-size: 1.5em;
+            font-weight: 600;
+            color:#0d77c1;
+            text-align: center;
+        }
+
+    padding: 4em 2em 2em 2em;
+    @media (max-width: 576px) {
+        padding: 3em 1.5em;
+        }
+
+
+    }
+    .error-message-wrapper {
+        width: 60%;
+        margin: auto;
+        @media (max-width: 970px) {
+            width: 100%;
+        }
+
+    }
+
+    .wrapper-quotes{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1em;
+
+        @media (min-width: 768px){
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .quotes-images {
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                margin: auto;
+                border-radius: 1em;
+                object-fit: cover;
+            }
+        }
+
+        .quotes-form{
+            background: linear-gradient(to right, rgba(8, 50, 78, 0.78), rgba(2, 45, 71, 0.9)), url("/images/bgcotizacion-2.webp");
+
+            padding: 1.5em 1.5em 1.5em 1.5em;
+
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            border-radius: 1em;
+
+
+        }
+
+
+    }
+
+
+
+</style>

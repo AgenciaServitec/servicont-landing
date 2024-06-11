@@ -1,0 +1,193 @@
+---
+
+---
+
+
+<div class="form-container">
+    <div id="contact-form">
+        <div class="item-wrapper">
+            <label for="plans">Planes</label>
+            <select id="plans" name="plans" class={"error-item"} required>
+            <option value="plans">Plan Emprendedor</option>
+            <option value="plans">Plan Pyme</option>
+            <option value="plans" >Plan Corporativo </option>
+            </select>
+        </div>
+        <div class="item-wrapper">
+            <label for="fullName">Nombres y apellidos</label>
+            <input id="fullName" placeholder="Nombres y apellidos" name="fullName" class={"error-item"} required />
+        </div>
+
+        <div class="item-wrapper">
+            <label for="phoneNumber">Teléfono</label>
+            <input
+              type="number"
+              id="phoneNumber"
+              placeholder="Telefono"
+              name="phoneNumber"
+              class={"error-item"}
+              required
+            />
+        </div>
+
+        <div class="item-wrapper">
+            <label for="businessline">Giro del Negocio</label>
+            <input id="businessline" placeholder="Giro del Negocio" name="businessline" class={"error-item"} required />
+        </div>
+
+        <div class="item-wrapper">
+            <label for="accountingadvice">¿Cuenta con asesoria contable?</label>
+            <select id="accountingadvice" name="accountingadvice" class={"error-item"} required>
+                <option value="accountingadvice">Si</option>
+                <option value="accountingadvice">No</option>
+
+            </select>
+        </div>
+        <div class="item-wrapper">
+            <label for="template">¿Tienes plantilla?</label>
+            <select id="template" name="template" class={"error-item"} required>
+                <option value="template">Si</option>
+                <option value="template">No</option>
+
+            </select>
+        </div>
+        <div class="item-wrapper">
+            <label for="accountingtype">Tipo de contabilidad</label>
+            <select id="accountingtype" name="accountingtype" class={"error-item"} required>
+                <option value="accountingtype">Manual</option>
+                <option value="accountingtype">Computarizada</option>
+
+            </select>
+        </div>
+
+
+        <div class="item-wrapper">
+            <label for="shopping">Compras</label>
+            <input type="number" id="shopping" placeholder="Compras" name="shopping" class={"error-item"} required />
+        </div>
+        <div class="item-wrapper">
+            <label for="email">Email</label>
+            <input id="email" placeholder="Email" name="email" class={"error-item"} required />
+        </div>
+
+        <div class="item-wrapper">
+            <label for="ruc">RUC</label>
+            <input
+              type="number"
+              id="ruc"
+              placeholder="R.U.C"
+              name="ruc"
+              class={"error-item"}
+              required
+            />
+        </div>
+        <div class="item-wrapper">
+            <label for="taxregime">Regimen triburario</label>
+            <input
+              id="taxregime"
+              placeholder="Regimen tributario"
+              name="taxregime"
+              class={"error-item"}
+              required
+            />
+        </div>
+        <div class="item-wrapper">
+            <label for="monthlybudget">Presupuesto mensual</label>
+            <input
+              type="number"
+              id="monthlybudget"
+              placeholder="Presupuesto mensual"
+              name="monthlybudget"
+              class={"error-item"}
+              required
+            />
+        </div>
+
+        <div class="item-wrapper">
+            <label for="workers">¿Cuantos trabajadores?</label>
+            <input
+              type="number"
+              id="workers"
+              placeholder="¿Cuantos trabajadores?"
+              name="workers"
+              class={"error-item"}
+              required
+            />
+        </div>
+
+        <div class="item-wrapper">
+            <label for="monthlysales">Ventas</label>
+            <input
+              type="number"
+              id="monthlysales"
+              placeholder="Ventas mensual"
+              name="monthlysales"
+              class={"error-item"}
+              required
+            />
+        </div>
+        <button class="btn-submit" id="btn-submit">Enviar</button>
+    </div>
+</div>
+<style lang="scss">
+  .form-container {
+      #contact-form{
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap:1em;
+      }
+    .item-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+        grid-column: span 3;
+
+        @media (min-width: 1024px){
+            grid-column: span 1;
+        }
+
+        &:nth-child(10),
+        &:nth-child(11){
+            @media (min-width: 1024px){
+                grid-column: span 3;
+            }
+        }
+
+      label {
+        color: white;
+        font-size: 0.8em;
+        margin-bottom: 0.5em;
+      }
+      input,
+      textarea,select {
+        width: 100%;
+        border-radius: 0.5em;
+        font-size: 1em;
+        padding: 0.3em;
+        border-color: transparent;
+        outline: none;
+      }
+    }
+    .btn-submit {
+      margin: 0 auto;
+      font-size: 1.2em;
+      text-transform: upperCase;
+      font-style: italic;
+      background-color: #0d77c1;
+      color: #fff;
+      padding: 0.6px;
+      border-radius: 7em;
+      width: 100%;
+      border-color: transparent;
+      cursor: pointer;
+        grid-column: span 3;
+        @media (min-width: 768px){
+            //grid-column: 2 / 3;
+        }
+    }
+
+    .error-item {
+      border: 1px solid red;
+    }
+  }
+</style>
