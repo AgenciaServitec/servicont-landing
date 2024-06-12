@@ -20,12 +20,12 @@ const { errors  } = Astro.props;
     </div>
     <div class="item-wrapper">
         <label for="phoneNumber">Teléfono</label>
-        <input type="text" id="phoneNumber" name="phoneNumber" />
+        <input type="number" id="phoneNumber" name="phoneNumber" />
         {errors?.phoneNumber && <p>{errors.phoneNumber}</p>}
     </div>
     <div class="item-wrapper">
         <label for="message">Mensaje</label>
-        <textarea id="message" name="message" cols="30" rows="4"></textarea>
+        <textarea id="message" name="message" cols="30" rows="4" ></textarea>
         {errors?.message && <p>{errors.message}</p>}
     </div>
     <button class="btn-submit" id="btn-submit">Enviar</button>

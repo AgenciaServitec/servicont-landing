@@ -2,6 +2,8 @@
 import Icon from "astro-icon";
 import { IconFontAwesome } from "../components";
 import Drawer from "./Drawer";
+
+const isHomePage = Astro.url.pathname === "/";
 ---
 
 <header id="header-item" class="header-general">
@@ -32,20 +34,20 @@ import Drawer from "./Drawer";
     <div class="menu-bar">
       <div class="img-logo">
         <a href="/" rel="noopener noreferrer">
-          <h1 style="display: none;">Mifan Llantas</h1>
-          <img src="/logo.webp" alt="Logo Multillantas MF Peru" width="150px" />
+          <h1 style="display: none">Estudio Contable</h1>
+          <img src="/logo.webp" alt="Logo E.C.E.S" width="180" height="80"/>
         </a>
       </div>
 
       <div class="item-menu">
         <ul>
-          <li><a href="#">Inicio</a></li>
+          <li><a href={isHomePage ? "#" : "/#"} rel="inicio">Inicio</a></li>
           <li>
-            <a href="#services">Servicios</a>
+            <a href={isHomePage ? "#services" : "/#services"} rel="servicios">Servicios</a>
           </li>
-          <li><a href="#about-us">Nosotros</a></li>
-          <li><a href="#plans">Planes</a></li>
-          <li><a href="/contact">Contacto</a></li>
+          <li><a href={isHomePage ? "#about-us" : "/#about-us"}  rel="nosotros">Nosotros</a></li>
+          <li><a href={isHomePage ? "#plans" : "/#plans"} rel="planes">Planes</a></li>
+          <li><a href="/contact" rel="contacto">Contacto</a></li>
         </ul>
       </div>
 
@@ -107,7 +109,7 @@ import Drawer from "./Drawer";
       .img-logo {
         img {
           padding: 5em;
-          width: 7em;
+          width: 70%;
           height: auto;
           object-fit: contain;
         }

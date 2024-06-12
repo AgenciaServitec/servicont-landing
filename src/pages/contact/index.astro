@@ -71,7 +71,7 @@ if (Astro.request.method === "POST") {
                 company: formData?.[2].value || "",
                 phone: {
                     countryCode: "+51",
-                    number: formData?.[3].value || "",
+                    number: +formData?.[3].value || "",
                 },
                 message: formData?.[4].value || "",
                 hostname: "eces.pe",
@@ -88,7 +88,7 @@ if (Astro.request.method === "POST") {
             body: JSON.stringify(mapContact(formData)),
         });
 
-        return Astro.redirect("/quotes");
+        return Astro.redirect("/success");
 
     } catch (error) {
         if (error instanceof Error) {

@@ -1,21 +1,24 @@
 ---
+const { errors  } = Astro.props;
 
 ---
 
 
-<div class="form-container">
+<form method="post" class="form-container">
     <div id="contact-form">
         <div class="item-wrapper">
-            <label for="plans">Planes</label>
-            <select id="plans" name="plans" class={"error-item"} required>
-            <option value="plans">Plan Emprendedor</option>
-            <option value="plans">Plan Pyme</option>
-            <option value="plans" >Plan Corporativo </option>
+            <label for="plans" >Planes</label>
+            <select id="plans" name="plans">
+            <option value="Plan Emprendedor">Plan Emprendedor</option>
+            <option value="Plan Pyme">Plan Pyme</option>
+            <option value="Plan Corporativo" >Plan Corporativo </option>
             </select>
+            {errors?.plans && <p>{errors.plans}</p>}
         </div>
         <div class="item-wrapper">
             <label for="fullName">Nombres y apellidos</label>
-            <input id="fullName" placeholder="Nombres y apellidos" name="fullName" class={"error-item"} required />
+            <input id="fullName" placeholder="Nombres y apellidos" name="fullName" />
+            {errors?.fullName && <p>{errors.fullName}</p>}
         </div>
 
         <div class="item-wrapper">
@@ -25,49 +28,50 @@
               id="phoneNumber"
               placeholder="Telefono"
               name="phoneNumber"
-              class={"error-item"}
-              required
             />
+            {errors?.phoneNumber && <p>{errors.phoneNumber}</p>}
         </div>
 
         <div class="item-wrapper">
             <label for="businessline">Giro del Negocio</label>
-            <input id="businessline" placeholder="Giro del Negocio" name="businessline" class={"error-item"} required />
+            <input id="businessline" placeholder="Giro del Negocio" name="businessline"   />
+            {errors?.businessline && <p>{errors.businessline}</p>}
         </div>
 
         <div class="item-wrapper">
             <label for="accountingadvice">¿Cuenta con asesoria contable?</label>
-            <select id="accountingadvice" name="accountingadvice" class={"error-item"} required>
-                <option value="accountingadvice">Si</option>
-                <option value="accountingadvice">No</option>
-
+            <select id="accountingadvice" name="accountingadvice" >
+                <option value=true>Si</option>
+                <option value=false>No</option>
             </select>
+            {errors?.accountingadvice && <p>{errors.accountingadvice}</p>}
         </div>
         <div class="item-wrapper">
             <label for="template">¿Tienes plantilla?</label>
-            <select id="template" name="template" class={"error-item"} required>
-                <option value="template">Si</option>
-                <option value="template">No</option>
-
+            <select id="template" name="template" >
+                <option value=true>Si</option>
+                <option value=false>No</option>
             </select>
+            {errors?.template && <p>{errors.template}</p>}
         </div>
         <div class="item-wrapper">
             <label for="accountingtype">Tipo de contabilidad</label>
-            <select id="accountingtype" name="accountingtype" class={"error-item"} required>
-                <option value="accountingtype">Manual</option>
-                <option value="accountingtype">Computarizada</option>
-
+            <select id="accountingtype" name="accountingtype"  >
+                <option value="Manual">Manual</option>
+                <option value="Computarizada">Computarizada</option>
             </select>
+            {errors?.accountingtype && <p>{errors.accountingtype}</p>}
         </div>
-
 
         <div class="item-wrapper">
             <label for="shopping">Compras</label>
-            <input type="number" id="shopping" placeholder="Compras" name="shopping" class={"error-item"} required />
+            <input type="number" id="shopping" placeholder="Compras" name="shopping"   />
+            {errors?.shopping && <p>{errors.shopping}</p>}
         </div>
         <div class="item-wrapper">
             <label for="email">Email</label>
-            <input id="email" placeholder="Email" name="email" class={"error-item"} required />
+            <input id="email" placeholder="Email" name="email" />
+            {errors?.email && <p>{errors.email}</p>}
         </div>
 
         <div class="item-wrapper">
@@ -77,9 +81,8 @@
               id="ruc"
               placeholder="R.U.C"
               name="ruc"
-              class={"error-item"}
-              required
             />
+            {errors?.ruc && <p>{errors.ruc}</p>}
         </div>
         <div class="item-wrapper">
             <label for="taxregime">Regimen triburario</label>
@@ -87,9 +90,8 @@
               id="taxregime"
               placeholder="Regimen tributario"
               name="taxregime"
-              class={"error-item"}
-              required
             />
+            {errors?.taxregime && <p>{errors.taxregime}</p>}
         </div>
         <div class="item-wrapper">
             <label for="monthlybudget">Presupuesto mensual</label>
@@ -98,9 +100,8 @@
               id="monthlybudget"
               placeholder="Presupuesto mensual"
               name="monthlybudget"
-              class={"error-item"}
-              required
             />
+            {errors?.monthlybudget && <p>{errors.monthlybudget}</p>}
         </div>
 
         <div class="item-wrapper">
@@ -110,9 +111,8 @@
               id="workers"
               placeholder="¿Cuantos trabajadores?"
               name="workers"
-              class={"error-item"}
-              required
             />
+            {errors?.workers && <p>{errors.workers}</p>}
         </div>
 
         <div class="item-wrapper">
@@ -122,13 +122,12 @@
               id="monthlysales"
               placeholder="Ventas mensual"
               name="monthlysales"
-              class={"error-item"}
-              required
             />
+            {errors?.monthlysales && <p>{errors.monthlysales}</p>}
         </div>
         <button class="btn-submit" id="btn-submit">Enviar</button>
     </div>
-</div>
+</form>
 <style lang="scss">
   .form-container {
       #contact-form{

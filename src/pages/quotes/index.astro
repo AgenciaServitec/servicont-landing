@@ -1,6 +1,166 @@
 ---
 import BaseLayout from "../../layout/BaseLayout.astro";
 import {QuotesFormComponent} from "../../components";
+
+interface ErrorProps {
+    plans:string;
+    fullName: string;
+    phoneNumber: string;
+    businessline:string;
+    accountingadvice:string;
+    template:string;
+    accountingtype:string;
+    shopping:string;
+    email: string;
+    ruc:string;
+    taxregime:string;
+    monthlybudget:string;
+    workers:string;
+    monthlysales:string;
+}
+
+const errors:ErrorProps = { plans:"",fullName: "", phoneNumber: "",businessline:"", accountingadvice:"",template:"",accountingtype:"",shopping:"",email:"",ruc:"",taxregime:"",monthlybudget:"",workers:"",monthlysales:""};
+
+const validateField = (value, label, name) => {
+    if (value.length < 1) {
+        errors[name] = `Ingrese ${label}`;
+    }
+};
+
+if (Astro.request.method === "POST") {
+    try {
+        const data = await Astro.request.formData();
+
+        const formData = [
+            {
+                value: data.get("plans"),
+                label: "Planes",
+                name: "plans",
+            },
+            {
+                value: data.get("fullName"),
+                label: "Nombre y Apellidos",
+                name: "fullName",
+            },
+
+
+            {
+                value: data.get("phoneNumber"),
+                label: "Teléfono",
+                name: "phoneNumber",
+            },
+            {
+                value: data.get("businessline"),
+                label: "Giro de negocio",
+                name: "businessline",
+            },
+            {
+                value: data.get("accountingadvice"),
+                label: "¿Cuenta con asesoria contable?",
+                name: "accountingadvice",
+            },
+            {
+                value: data.get("template"),
+                label: "¿Tienes plantilla?",
+                name: "template",
+            },
+            {
+                value: data.get("accountingtype"),
+                label: "Tipo de contabilidad",
+                name: "accountingtype",
+            },
+            {
+                value: data.get("shopping"),
+                label: "Compras",
+                name: "shopping",
+            },
+
+            {
+                value: data.get("email"),
+                label: "Correo",
+                name: "email",
+            },
+            {
+                value: data.get("ruc"),
+                label: "RUC",
+                name: "ruc",
+            },
+            {
+                value: data.get("taxregime"),
+                label: "Regimen tributario",
+                name: "taxregime",
+            },
+            {
+                value: data.get("monthlybudget"),
+                label: "Presupuesto mensual",
+                name: "monthlybudget",
+            }, {
+                value: data.get("workers"),
+                label: "¿Cuantos trabajadores?",
+                name: "workers",
+            },
+            {
+                value: data.get("monthlysales"),
+                label: "Ventas?",
+                name: "monthlysales",
+            },
+
+        ];
+
+        formData.map((field) => {
+            validateField(field.value, field.label, field.name);
+        });
+
+        const hasErrors = (Object.values(errors) || []).some((msg) => msg);
+
+        if (hasErrors) {
+            throw new Error(JSON.stringify(errors));
+        }
+
+        const mapQuotation = (formData) => ({
+            quotation: {
+                planType: formData?.[0].value || "",
+                fullName: formData?.[1].value || "",
+                phone: {
+                    countryCode: "+51",
+                    number: +formData?.[2].value || "",
+                },
+                businessLine: formData?.[3].value || "",
+                accountingAdvice: formData?.[4].value === "true",
+                spreadsheet: formData?.[5].value === "true",
+                typeAccounting: formData?.[6].value || "",
+                monthlyPurchases:+formData?.[7].value || "",
+                email: formData?.[8].value || "",
+                ruc: formData?.[9].value || "",
+                taxRegime: formData?.[10].value || "",
+                monthlyBudget: +formData?.[11].value || null,
+                howManyWorkers: +formData?.[12].value || null,
+                monthlySales: +formData?.[13].value || null,
+                hostname: "eces.pe",
+            },
+        });
+
+        console.log(mapQuotation(formData))
+
+
+        await fetch("https://api-servitecsales.web.app/emails/quotation", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify(mapQuotation(formData)),
+        });
+
+        return Astro.redirect("/success");
+
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error("Error:", error.message);
+        }
+    }
+}
+
 ---
 <BaseLayout>
 
