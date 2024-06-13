@@ -82,6 +82,15 @@ const isHomePage = Astro.url.pathname === "/";
       justify-content: space-between;
       align-items: center;
 
+      .img-logo {
+        img {
+
+          width: 200px;
+          height: 90px;
+          object-fit: contain;
+        }
+      }
+
       .item-menu-button {
         background: #fff;
         color: #000;
@@ -106,14 +115,7 @@ const isHomePage = Astro.url.pathname === "/";
           }
         }
       }
-      .img-logo {
-        img {
-          padding: 5em;
-          width: 70%;
-          height: auto;
-          object-fit: contain;
-        }
-      }
+
       .anchor-icon {
         .icon {
           color: var(--color-primary);
