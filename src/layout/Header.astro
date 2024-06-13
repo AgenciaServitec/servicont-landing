@@ -35,7 +35,7 @@ const isHomePage = Astro.url.pathname === "/";
       <div class="img-logo">
         <a href="/" rel="noopener noreferrer">
           <h1 style="display: none">Estudio Contable</h1>
-          <img src="/logo.webp" alt="Logo E.C.E.S" width="180" height="80"/>
+          <img src="/logo.webp" alt="Logo E.C.E.S" width="1170" height="486"/>
         </a>
       </div>
 
@@ -54,6 +54,7 @@ const isHomePage = Astro.url.pathname === "/";
       <div class="item-menu-button">
         <Drawer client:visible>
           <IconFontAwesome
+                  aria-label="barramenu"
             width="30px"
             path="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
           />
@@ -84,9 +85,8 @@ const isHomePage = Astro.url.pathname === "/";
 
       .img-logo {
         img {
-
-          width: 200px;
-          height: 90px;
+          max-width: 200px;
+          max-height: 90px;
           object-fit: contain;
         }
       }
