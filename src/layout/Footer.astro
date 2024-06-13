@@ -1,6 +1,7 @@
 ---
 
 import Icon from "astro-icon";
+const isHomePage = Astro.url.pathname === "/";
 ---
 
 <footer class="footer">
@@ -45,10 +46,13 @@ import Icon from "astro-icon";
         <div class="footer-top__sections">
             <h3>Paginas</h3>
             <ul>
-                <li><a href="/service">Servicio</a></li>
-                <li><a href="/about-us">Nosotros</a></li>
-                <li><a href="/plans">Planes</a></li>
-                <li><a href="/contact">Contacto</a></li>
+                <li><a href={isHomePage ? "#" : "/#"} rel="inicio">Inicio</a></li>
+                <li>
+                    <a href={isHomePage ? "#services" : "/#services"} rel="servicios">Servicios</a>
+                </li>
+                <li><a href={isHomePage ? "#about-us" : "/#about-us"}  rel="nosotros">Nosotros</a></li>
+                <li><a href={isHomePage ? "#plans" : "/#plans"} rel="planes">Planes</a></li>
+                <li><a href="/contact" rel="contacto">Contacto</a></li>
             </ul>
         </div>
         <div class="footer-top__contacts">

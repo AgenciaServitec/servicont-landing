@@ -1,5 +1,5 @@
 ---
-const { errors  } = Astro.props;
+const { errors, loading  } = Astro.props;
 ---
 
 <form method="post" class="form-container">
@@ -28,7 +28,7 @@ const { errors  } = Astro.props;
         <textarea id="message" name="message" cols="30" rows="4" ></textarea>
         {errors?.message && <p>{errors.message}</p>}
     </div>
-    <button class="btn-submit" id="btn-submit">Enviar</button>
+    <button class="btn-submit" id="btn-submit" disabled={loading}>Enviar</button>
 </form>
 
 <style lang="scss">
