@@ -1,6 +1,7 @@
 ---
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
+import { ButtonFloating } from "../components";
 interface Props {
   title?: string;
   description?: string;
@@ -29,6 +30,7 @@ const {
       <div class="main">
         <slot />
       </div>
+        <ButtonFloating />
       <Footer />
     </div>
     <style is:global lang="scss">
