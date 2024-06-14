@@ -4,13 +4,13 @@ import FormContact from "../../components/contact/ContactFormComponent";
 ---
 
 <BaseLayout>
-  <main>
-    <div class="error-message-wrapper" id="error-message-wrapper"></div>
-    <section>
-      <span>Contacto</span>
-      <FormContact client:load />
-    </section>
-  </main>
+    <main>
+        <div class="error-message-wrapper" id="error-message-wrapper"></div>
+        <section>
+            <span>Contacto</span>
+            <FormContact client:load />
+        </section>
+    </main>
 </BaseLayout>
 
 <style lang="scss">
@@ -28,7 +28,12 @@ import FormContact from "../../components/contact/ContactFormComponent";
     }
 
     section {
-      background: linear-gradient(to right, rgba(31, 94, 138, 0.78), rgba(31, 94, 138, 0.78)), url("/images/contact-form.webp");
+      background: linear-gradient(
+                      to right,
+                      rgba(31, 94, 138, 0.78),
+                      rgba(31, 94, 138, 0.78)
+      ),
+      url("/images/contact-form.webp");
 
       padding: 1em 1.5em 3em 1.5em;
       max-width: 550px;
@@ -42,7 +47,7 @@ import FormContact from "../../components/contact/ContactFormComponent";
         padding: 0.3em;
         font-size: 2.2em;
         font-weight: 600;
-          color:white;
+        color: white;
       }
     }
   }

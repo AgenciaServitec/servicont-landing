@@ -47,8 +47,6 @@ export const POST = async ({ request }) => {
     },
   );
 
-  console.log("response: ", response);
-
   return new Response(
     JSON.stringify({
       ok: true,
