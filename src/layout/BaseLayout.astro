@@ -23,6 +23,21 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16610202298"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-16610202298");
+    </script>
   </head>
   <body>
     <div class="general-wrapper">
@@ -30,7 +45,7 @@ const {
       <div class="main">
         <slot />
       </div>
-        <ButtonFloating />
+      <ButtonFloating />
       <Footer />
     </div>
     <style is:global lang="scss">
