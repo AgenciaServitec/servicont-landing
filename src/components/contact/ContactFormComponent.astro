@@ -30,3 +30,43 @@ const { errors, loading  } = Astro.props;
     </div>
     <button class="btn-submit" id="btn-submit" disabled={loading}>Enviar</button>
 </form>
+
+<style lang="scss">
+  .form-container {
+    .item-wrapper {
+      margin-bottom: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      label {
+          color: white;
+        font-size: 0.8em;
+        margin-bottom: 0.5em;
+      }
+      input,
+      textarea {
+        width: 100%;
+        border-radius: 0.5em;
+        font-size: 1.1em;
+        padding: 0.6em;
+        border-color: transparent;
+        outline: none;
+      }
+    }
+    .btn-submit {
+      margin: 0 auto;
+      font-size: 1.2em;
+      text-transform: upperCase;
+      font-style: italic;
+      background-color: #0d77c1;
+      color: #fff;
+      padding: 1em;
+      border-radius: 7em;
+      width: 100%;
+      border-color: transparent;
+      cursor: pointer;
+    }
+
+
+  }
+</style>
