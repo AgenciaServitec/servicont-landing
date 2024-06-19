@@ -18,11 +18,14 @@ const FormContact = () => {
 
       const data = await response.json();
 
-      if (data.ok) {
+      if (!data.ok) {
         setResponseMessage(data.message);
+        return;
       }
 
       window.location.href = "/success";
+
+      setLoading(false);
     } catch (e) {
       console.error(e);
     } finally {
