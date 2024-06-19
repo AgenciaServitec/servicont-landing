@@ -1,7 +1,7 @@
 ---
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
-import { ButtonFloating } from "../components";
+import { ButtonFloatingWhatsapp,ButtonFloatingContact } from "../components";
 interface Props {
   title?: string;
   description?: string;
@@ -43,9 +43,10 @@ const {
     <div class="general-wrapper">
       <Header />
       <div class="main">
+        <ButtonFloatingContact/>
         <slot />
       </div>
-      <ButtonFloating />
+      <ButtonFloatingWhatsapp />
       <Footer />
     </div>
     <style is:global lang="scss">
@@ -72,6 +73,7 @@ const {
       .main {
         width: 100%;
         height: auto;
+        position:relative;
       }
     </style>
   </body>

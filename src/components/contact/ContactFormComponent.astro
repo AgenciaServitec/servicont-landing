@@ -1,0 +1,32 @@
+---
+const { errors, loading  } = Astro.props;
+---
+
+<form method="post" class="form-container">
+    <div class="item-wrapper">
+        <label for="fullName">Nombres y apellidos</label>
+        <input type="text" id="fullName" name="fullName" />
+        {errors?.fullName && <p>{errors.fullName}</p>}
+    </div>
+    <div class="item-wrapper">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" />
+        {errors?.email && <p>{errors.email}</p>}
+    </div>
+    <div class="item-wrapper">
+        <label for="company">Empresa</label>
+        <input type="text" id="company" name="company" />
+        {errors?.company && <p>{errors.company}</p>}
+    </div>
+    <div class="item-wrapper">
+        <label for="phoneNumber">Teléfono</label>
+        <input type="number" id="phoneNumber" name="phoneNumber" />
+        {errors?.phoneNumber && <p>{errors.phoneNumber}</p>}
+    </div>
+    <div class="item-wrapper">
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" cols="30" rows="4" ></textarea>
+        {errors?.message && <p>{errors.message}</p>}
+    </div>
+    <button class="btn-submit" id="btn-submit" disabled={loading}>Enviar</button>
+</form>
