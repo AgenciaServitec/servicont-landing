@@ -15,6 +15,7 @@ export const POST = async ({ request }) => {
   if (!name || !email || !phoneNumber) {
     return new Response(
       JSON.stringify({
+        ok: false,
         message: `Faltan los siguientes campos: ${fields["name"]},${fields["email"]}, ${fields["company"]}, ${fields["phoneNumber"]}`,
       }),
       { status: 400 },
@@ -26,7 +27,7 @@ export const POST = async ({ request }) => {
       fullName: name,
       email,
       phone: {
-        prefix: "+51",
+        countryCode: "+51",
         number: phoneNumber,
       },
       message,
