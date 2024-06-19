@@ -1,14 +1,13 @@
 ---
 import BaseLayout from "../../layout/BaseLayout.astro";
-import FormContact from "../../components/contact/ContactFormComponent";
+import ContactFormComponent from "../../components/contact/ContactFormComponent.jsx";
 ---
 
 <BaseLayout>
   <main>
     <div class="error-message-wrapper" id="error-message-wrapper"></div>
     <section>
-      <span>Contacto</span>
-      <FormContact client:load />
+      <ContactFormComponent client:load />
     </section>
   </main>
 </BaseLayout>

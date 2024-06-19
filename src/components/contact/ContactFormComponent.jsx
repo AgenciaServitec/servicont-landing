@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FormContact = () => {
+const ContactFormComponent = () => {
   const [loading, setLoading] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
 
@@ -35,6 +35,7 @@ const FormContact = () => {
 
   return (
     <form onSubmit={submit} noValidate>
+      <h3>Contacto</h3>
       <label htmlFor="name">
         Nombres
         <input type="text" id="name" name="name" autoComplete="name" required />
@@ -74,7 +75,7 @@ const FormContact = () => {
           padding: "1em",
           border: "none",
           pointerEvents: `${loading ? "none" : ""}`,
-          background: `${loading ? "yellow" : ""}`,
+          background: `${loading ? "gray" : ""}`,
         }}
       >
         Enviar
@@ -84,4 +85,4 @@ const FormContact = () => {
   );
 };
 
-export default FormContact;
+export default ContactFormComponent;
