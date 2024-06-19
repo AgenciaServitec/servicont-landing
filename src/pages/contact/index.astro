@@ -111,6 +111,7 @@ const data = await Astro.request.formData();
         <div class="error-message-wrapper" id="error-message-wrapper"></div>
         <section>
             <span>Contacto</span>
+
             <ContactFormComponent key={new Date()} errors={errors} loading={loading}/>
         </section>
     </main>
