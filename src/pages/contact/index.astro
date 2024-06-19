@@ -1,120 +1,15 @@
 ---
 import BaseLayout from "../../layout/BaseLayout.astro";
-import {ContactFormComponent} from "../../components";
-
-interface ErrorProps {
-    fullName: string;
-    email: string;
-    company:string;
-    phoneNumber: string;
-    message: string;
-}
-
-const errors:ErrorProps = { fullName: "", email: "",company:"", phoneNumber: "", message: "" };
-
-
-
-const validateField = (value, label, name) => {
-    if (name === "message") return;
-    if (value.length < 1) {
-        errors[name] = `Ingrese ${label}`;
-    }
-};
-
-
-let loading = false;
-if (Astro.request.method === "POST") {
-    try {
-        loading= true;
-const data = await Astro.request.formData();
-        const formData = [
-            {
-                value: data.get("fullName"),
-                label: "Nombre y Apellidos",
-                name: "fullName",
-            },
-            {
-                value: data.get("email"),
-                label: "Correo",
-                name: "email",
-            },
-
-            {
-                value: data.get("company"),
-                label: "Empresa",
-                name:"company",
-            },
-            {
-                value: data.get("phoneNumber"),
-                label: "Teléfono",
-                name: "phoneNumber",
-            },
-            {
-                value: data.get("message"),
-                label: "Mensaje",
-                name: "message",
-            },
-        ];
-
-        formData.map((field) => {
-            validateField(field.value, field.label, field.name);
-        });
-
-
-        const hasErrors = (Object.values(errors) || []).some((msg) => msg);
-
-        if (hasErrors) {
-            throw new Error(JSON.stringify(errors));
-        }
-
-        const mapContact = (formData) => ({
-            contact: {
-                fullName: formData?.[0].value || "",
-                email: formData?.[1].value || "",
-                company: formData?.[2].value || "",
-                phone: {
-                    countryCode: "+51",
-                    number: +formData?.[3].value || "",
-                },
-                message: formData?.[4].value || "",
-                hostname: "eces.pe",
-            },
-        });
-
-
-        await fetch("https://api-servitecsales.web.app/emails/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-            body: JSON.stringify(mapContact(formData)),
-        });
-
-
-
-        return Astro.redirect("/success");
-
-    } catch (error) {
-        if (error instanceof Error) {
-            console.error("Error:", error.message);
-        }
-    } finally {
-        loading = false;
-    }
-}
-
+import ContactFormComponent from "../../components/contact/ContactFormComponent.jsx";
 ---
 
 <BaseLayout>
-    <main>
-        <div class="error-message-wrapper" id="error-message-wrapper"></div>
-        <section>
-            <span>Contacto</span>
-
-            <ContactFormComponent key={new Date()} errors={errors} loading={loading}/>
-        </section>
-    </main>
+  <main>
+    <div class="error-message-wrapper" id="error-message-wrapper"></div>
+    <section>
+      <ContactFormComponent client:load />
+    </section>
+  </main>
 </BaseLayout>
 
 <style lang="scss">
@@ -132,7 +27,12 @@ const data = await Astro.request.formData();
     }
 
     section {
-      background: linear-gradient(to right, rgba(31, 94, 138, 0.78), rgba(31, 94, 138, 0.78)), url("/images/contact-form.webp");
+      background: linear-gradient(
+          to right,
+          rgba(31, 94, 138, 0.78),
+          rgba(31, 94, 138, 0.78)
+        ),
+        url("/images/contact-form.webp");
 
       padding: 1em 1.5em 3em 1.5em;
       max-width: 550px;
@@ -146,8 +46,13 @@ const data = await Astro.request.formData();
         padding: 0.3em;
         font-size: 2.2em;
         font-weight: 600;
-          color:white;
+        color: white;
       }
     }
+  }
+
+  .disabled {
+    pointer-events: none;
+    background: gray;
   }
 </style>
