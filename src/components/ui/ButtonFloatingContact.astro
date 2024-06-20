@@ -5,21 +5,32 @@ import ContactFormComponent from "../../components/contact/ContactFormComponent"
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const elementItemVisibleForm = document.querySelector("#item-open-form");
-    const elementItemIconCloseForm = document.querySelector(
-      "#item-icon-close-form",
-    );
-    const elementContainerContactFx = document.querySelector(
-      "#container-form-contact-us-fixed",
-    );
+    const elementItemIconCloseForm = document.querySelector("#item-icon-close-form");
+    const elementContainerContactFx = document.querySelector("#container-form-contact-us-fixed");
 
     const toggleFormVisibility = () => {
       elementContainerContactFx.classList.toggle("is_visible");
       elementItemVisibleForm.classList.toggle("none");
     };
+
     elementContainerContactFx.classList.add("none");
+
+    const hideButtonAndFormOnContactPage = () => {
+      const contactPagePath = "/contact";
+      if (window.location.pathname.endsWith(contactPagePath)) {
+        elementItemVisibleForm.style.display = "none";
+        elementContainerContactFx.classList.remove("is_visible");
+      } else {
+        elementItemVisibleForm.style.display = "block";
+      }
+    };
+
+    hideButtonAndFormOnContactPage();
+
     elementItemVisibleForm.addEventListener("click", () => {
       toggleFormVisibility();
     });
+
     elementItemIconCloseForm.addEventListener("click", () => {
       toggleFormVisibility();
     });
@@ -30,10 +41,7 @@ import ContactFormComponent from "../../components/contact/ContactFormComponent"
   <div>Contáctanos</div>
 </div>
 
-<div
-  class="form-contact-container form-contact-container-fixed none"
-  id="container-form-contact-us-fixed"
->
+<div class="form-contact-container form-contact-container-fixed none" id="container-form-contact-us-fixed">
   <div class="item-icon-close-form" id="item-icon-close-form">X</div>
   <div class="bg-form-filter"></div>
   <div class="header-wrapper">
@@ -64,18 +72,14 @@ import ContactFormComponent from "../../components/contact/ContactFormComponent"
     left: 0;
     top: 7%;
     z-index: 999999;
-    background: linear-gradient(
-        to right,
-        rgba(31, 94, 138, 0.78),
-        rgba(31, 94, 138, 0.78)
-      ),
-      url("/images/contact-form.webp");
+    background: linear-gradient(to right, rgba(31, 94, 138, 0.78), rgba(31, 94, 138, 0.78)), url("/images/contact-form.webp");
     padding: 1rem;
     border-bottom-right-radius: 1.5rem;
     border-top-right-radius: 1.5rem;
     display: none;
     flex-direction: column;
     width: 30rem;
+
     box-sizing: border-box;
   }
 

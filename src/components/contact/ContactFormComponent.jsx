@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./ContactFormComponent.css";
 
 const ContactFormComponent = () => {
   const [loading, setLoading] = useState(false);
@@ -34,44 +35,52 @@ const ContactFormComponent = () => {
   }
 
   return (
-    <form onSubmit={submit} noValidate>
+    <form onSubmit={submit} noValidate className="form-container" >
       <h3>Contacto</h3>
-      <label htmlFor="name">
-        Nombres
-        <input type="text" id="name" name="name" autoComplete="name" required />
-      </label>{" "}
+      <div className="item-wrapper">
+          <label htmlFor="name">
+              Nombres
+              <input type="text" id="name" name="name" autoComplete="name" required />
+          </label>{" "}
+      </div>
       <br />
-      <label htmlFor="email">
-        Email
-        <input
-          type="email"
-          id="email"
-          name="email"
-          autoComplete="email"
-          required
-        />
-      </label>{" "}
+      <div className="item-wrapper">
+          <label htmlFor="email">
+              Email
+              <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autoComplete="email"
+                  required
+              />
+          </label>{" "}
+      </div>
       <br />
-      <label htmlFor="phoneNumber">
-        Teléfono
-        <input
-          type="number"
-          id="phoneNumber"
-          name="phoneNumber"
-          autoComplete="phoneNumber"
-          required
-        />
-      </label>
-      <br />
-      <label htmlFor="message">
-        Mensaje
-        <textarea id="message" name="message" autoComplete="off" required />
-      </label>
-      <button
-        className={loading ? "disabled" : ""}
-        disabled={loading}
-        style={{
-          minWidth: "300px",
+        <div className="item-wrapper">
+            <label htmlFor="phoneNumber">
+                Teléfono
+                <input
+                    type="number"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    autoComplete="phoneNumber"
+                    required
+                />
+            </label>
+        </div>
+        <br/>
+        <div className="item-wrapper">
+            <label htmlFor="message">
+                Mensaje
+                <textarea id="message" name="message" autoComplete="off" required/>
+            </label>
+        </div>
+        <button
+            className={loading ? "disabled" : ""}
+            disabled={loading}
+            style={{
+                minWidth: "300px",
           padding: "1em",
           border: "none",
           pointerEvents: `${loading ? "none" : ""}`,
@@ -80,9 +89,11 @@ const ContactFormComponent = () => {
       >
         Enviar
       </button>
-      {responseMessage && <p>{responseMessage}</p>}
+      {responseMessage && <p style={{color: "red", padding: "1em"}}>{responseMessage}</p>}
     </form>
+
   );
 };
+
 
 export default ContactFormComponent;

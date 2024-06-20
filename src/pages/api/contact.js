@@ -8,7 +8,6 @@ export const POST = async ({ request }) => {
   const fields = {
     name: "Nombres",
     email: "Email",
-    company: "Compania",
     phoneNumber: "Teléfono",
   };
 
@@ -16,7 +15,7 @@ export const POST = async ({ request }) => {
     return new Response(
       JSON.stringify({
         ok: false,
-        message: `Faltan los siguientes campos: ${fields["name"]},${fields["email"]}, ${fields["company"]}, ${fields["phoneNumber"]}`,
+        message: `Faltan los siguientes campos: ${fields["name"]},${fields["email"]}, ${fields["phoneNumber"]}`,
       }),
       { status: 400 },
     );
