@@ -1,31 +1,31 @@
 ---
-import { BaseLayout } from "../../layout";
+import { BaseLayout } from "../../layouts";
 ---
+
 <BaseLayout title="Mensaje exitoso">
-    <!-- Event snippet for Enviar formulario de clientes potenciales conversion page -->
-    <script>
-        gtag('event', 'conversion', {
-            'send_to': 'AW-16632800466/l74ZCNDCkIEaENLJkfs9',
-            'value': 1.0,
-            'currency': 'PEN'
-        });
-    </script>
+  <!-- Event snippet for Enviar formulario de clientes potenciales conversion page -->
+  <!--<script>-->
+  <!--    gtag('event', 'conversion', {-->
+  <!--        'send_to': 'AW-16632800466/l74ZCNDCkIEaENLJkfs9',-->
+  <!--        'value': 1.0,-->
+  <!--        'currency': 'PEN'-->
+  <!--    });-->
+  <!--</script>-->
 
-
-    <main>
-        <section class="success">
-            <div class="success__img">
-                <img loading="lazy" src="/images/success.webp" alt="Exitoso" />
-            </div>
-            <div class="success__text">
-                <h2 class="success__text-title">Mensaje enviado exitosamente</h2>
-                <p class="success__text-description">Nos comunicaremos en breve</p>
-            </div>
-        </section>
-        <div class="success-btn">
-            <a href="/">Regresar a inicio</a>
-        </div>
-    </main>
+  <main>
+    <section class="success">
+      <div class="success__img">
+        <img loading="lazy" src="/images/success.webp" alt="Exitoso" />
+      </div>
+      <div class="success__text">
+        <h2 class="success__text-title">Mensaje enviado exitosamente</h2>
+        <p class="success__text-description">Nos comunicaremos en breve</p>
+      </div>
+    </section>
+    <div class="success-btn">
+      <a href="/">Regresar a inicio</a>
+    </div>
+  </main>
 </BaseLayout>
 
 <style lang="scss">
@@ -44,8 +44,8 @@ import { BaseLayout } from "../../layout";
     gap: 4em;
     padding: 1em 7em;
     @media (max-width: 1200px) {
-        flex-direction: column;
-        gap: 1em;
+      flex-direction: column;
+      gap: 1em;
       padding: 0 2em;
     }
     &__img {
@@ -72,21 +72,19 @@ import { BaseLayout } from "../../layout";
       &-description {
         font-size: 2em;
 
-          @media (max-width: 576px) {
-              padding-bottom: 1em;
-              font-size: 1.5em;
-          }
+        @media (max-width: 576px) {
+          padding-bottom: 1em;
+          font-size: 1.5em;
+        }
       }
       @media (max-width: 1024px) {
-
         width: 100%;
-
       }
     }
   }
   .success-btn {
     width: 100%;
-      padding-top: 1em;
+    padding-top: 1em;
     display: flex;
     justify-content: center;
     a {

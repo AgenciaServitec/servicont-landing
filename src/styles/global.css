@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme{
+    --font-sans: 'DM Sans Variable', sans-serif;
+    --font-rethink: 'Rethink Sans Variable', sans-serif;
+}

@@ -10,16 +10,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^5.2.0",
-    "@astrojs/partytown": "^2.1.0",
-    "@astrojs/react": "^3.0.7",
+    "@astrojs/netlify": "^6.3.4",
+    "@astrojs/partytown": "^2.1.4",
+    "@astrojs/react": "^4.3.0",
+    "@fontsource-variable/dm-sans": "^5.2.6",
     "@fontsource-variable/noto-sans-georgian": "^5.0.22",
-    "astro": "^4.9.2",
+    "@fontsource-variable/rethink-sans": "^5.2.6",
+    "@tailwindcss/vite": "^4.1.10",
+    "astro": "^5.9.3",
     "astro-icon": "^0.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.2",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "tailwindcss": "^4.1.10"
   },
   "devDependencies": {
     "prettier": "^3.2.5",

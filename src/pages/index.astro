@@ -1,6 +1,8 @@
 ---
-import { BaseLayout } from "../layout";
-import {AboutUs, Plans, Services, Carousel} from "../components";
+import { BaseLayout } from "../layouts";
+import { AboutUs, Plans, Services, Carousel } from "../components";
+import Hero from "../components/Hero.astro";
+import ContentWidth from "../components/ContentWidth.astro";
 
 interface Img {
   src: string;
@@ -9,11 +11,8 @@ interface Img {
 
 const slides: Img[] = [
   {
-
     src: "/images/banner-1.webp",
     alt: "Banner",
-
-
   },
   {
     src: "/images/banner-2.webp",
@@ -27,12 +26,11 @@ const slides: Img[] = [
 ---
 
 <BaseLayout>
-  <main>
-    <Carousel slides={slides} />
-  </main>
-  <Services />
+  <Hero />
   <AboutUs />
-  <Plans />
+  <Services />
+  <!--<Plans />-->
+  <!--<Carousel slides={slides} />-->
 </BaseLayout>
 
 <style lang="scss">

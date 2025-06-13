@@ -1,0 +1,68 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<section
+  id="hero"
+  class="relative w-full h-svh bg-[url('https://assets.entrepreneur.com/content/3x2/2000/1647619413-shutterstock-1700571760.jpg?format=pjeg&auto=webp&crop=16:9')] bg-cover rounded-3xl overflow-hidden"
+>
+  <div
+    class="absolute w-full h-svh flex flex-col justify-between bg-black/50 px-20 py-6"
+  >
+    <div class="flex justify-between">
+      <div class="flex items-center gap-2">
+        <a
+          href="#"
+          class="flex items-center gap-2 px-4 py-2 bg-white rounded-full"
+        >
+          <span> Vargas 179 - Piso 1, Chorrillos</span>
+          <span
+            class="w-7 h-7 flex justify-center items-center rounded-full bg-black"
+          >
+            <Icon name="location-arrow" size={15} class="text-white" />
+          </span>
+        </a>
+        <a
+          href="tel:943581507"
+          class="flex items-center gap-2 px-4 py-2 bg-white rounded-full"
+        >
+          <span> Llámanos</span>
+          <span
+            class="w-7 h-7 flex justify-center items-center rounded-full bg-black"
+          >
+            <Icon name="phone" size={15} class="text-white" />
+          </span>
+        </a>
+      </div>
+
+      <a
+        href="#"
+        class="flex items-center gap-2 px-4 py-2 bg-white rounded-full"
+      >
+        <span>Texto pensando aun</span>
+        <Icon name="chevron-right" size={15} />
+      </a>
+    </div>
+    <div class="flex flex-col items-start gap-4 text-white">
+      <div
+        class="border-2 border-white rounded-full p-4 backdrop-blur-lg text-lg"
+      >
+        <span>Confianza | Orden | Cumplimiento</span>
+      </div>
+      <div class="flex">
+        <div class="flex flex-col gap-4">
+          <h2 class="text-6xl font-rethink text-pretty leading-20">
+            Tu tranquilidad contable, nuestra responsabilidad
+          </h2>
+          <p class="text-xl">
+            Asesoría contable y tributaria para emprendedores y empresas
+          </p>
+        </div>
+        <a href="#" class="flex flex-col items-center gap-4 text-xl">
+          <span class="font-semibold">Empezamos</span>
+          <Icon name="arrow-down-long" size={80} />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
