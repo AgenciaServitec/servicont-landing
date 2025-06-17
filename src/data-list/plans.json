@@ -1,0 +1,15 @@
+[
+  {
+    "title": "Plan Emprendedor",
+    "description": "Un servicio que te ofrece llevar al día tu contabilidad especialmente en el tema tributario con la asesoría especial que te permitirá proyectarte llevar tu emprendimiento a un nivel profesional y competitivo.",
+    "image": "/images/plan-emprendedor.webp"
+  },{
+    "title": "Plan Pyme",
+    "description": "Gestión administrativa y contable con alcance superior, ideada para desarrollar aptitudes competitivas en tu empresa que arrojan como resultado la expansión.",
+    "image": "/images/plan-pyme.webp"
+  },{
+    "title": "Plan Corporativo",
+    "description": "Porque entendemos como cambian tus necesidades cuando abarcas varios sectores al mismo tiempo, nuestros servicios tienen el alcance y la velocidad que te brindan solidez y estabilidad en un mundo globalizado y cambiante.",
+    "image": "/images/plan-corporativo.webp"
+  }
+]

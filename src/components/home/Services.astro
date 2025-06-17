@@ -1,32 +1,115 @@
 ---
 import Icon from "astro-icon";
 import { services } from "../../data-list";
+import { Image } from "astro:assets";
 ---
 
-<section id="services">
-  <h2>Nuestros Servicios</h2>
-  <div>
-    {
-      services.map(({ title, image, points }, index) => (
-        <article class="flex gap-6">
-          <img
-            src={image}
-            alt={`Imagen de ${title}`}
-            class="flex-1 w-60 h-[80vh] rounded-3xl object-cover"
-          />
-          <div class="flex-1 flex flex-col justify-between p-6">
-            <div class="flex flex-col gap-4">
-              <span class="text-7xl">0{index + 1}</span>
-              <h3 class="text-5xl">{title}</h3>
+<section id="services" class="py-10">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="w-max rounded-full px-4 py-2 bg-[#f9f9f9] font-semibold">
+      (⚡) Servicios
+    </h2>
+    <div class="space-x-4">
+      <button
+        id="prev"
+        class="border border-secondary bg-white hover:bg-secondary rounded-full p-4 cursor-pointer duration-300 group"
+      >
+        <Icon
+          name="angle-left"
+          size={20}
+          class="text-secondary group-hover:text-white"
+        />
+      </button>
+      <button
+        id="next"
+        class="border border-secondary bg-white hover:bg-secondary rounded-full p-4 cursor-pointer duration-300 group"
+      >
+        <Icon
+          name="angle-right"
+          size={20}
+          class="text-secondary group-hover:text-white"
+        />
+      </button>
+    </div>
+  </div>
+  <div class="w-full relative overflow-hidden justify-center gap-6">
+    <div id="carousel-track" class="flex duration-300">
+      {
+        services.map(({ title, image, points }, index) => (
+          <article class="slide min-w-full flex flex-col xl:flex-row gap-2 xl:gap-6">
+            <Image
+              src={image}
+              alt={`Imagen de ${title}`}
+              width="200"
+              height="200"
+              loading="lazy"
+              class="xl:flex-1 w-full xl:w-60 h-80 xl:h-[80vh] rounded-3xl object-cover"
+            />
+            <div class="xl:flex-1 flex flex-col justify-between p-2 xl:p-6">
+              <div class="flex flex-col gap-4">
+                <span class="text-2xl xl:text-7xl font-semibold">
+                  0{index + 1}
+                </span>
+                <h3 class="text-xl xl:text-5xl mb-4">{title}</h3>
+              </div>
+              <ul class="flex flex-col gap-4">
+                {points.map((point) => (
+                  <li class="xl:text-xl">⚡{point}</li>
+                ))}
+              </ul>
             </div>
-            <ul class="flex flex-col gap-4">
-              {points.map((point) => (
-                <li class="text-xl">⚡{point}</li>
-              ))}
-            </ul>
-          </div>
-        </article>
-      ))
-    }
+          </article>
+        ))
+      }
+    </div>
   </div>
 </section>
+
+<script>
+  const track = document.querySelector("#carousel-track");
+  const slides = document.querySelectorAll(".slide");
+  const prevBtn = document.querySelector("#prev");
+  const nextBtn = document.querySelector("#next");
+  let currentSlide = 0;
+  let autoSlideInterval;
+
+  function updateSlide() {
+    const slideWidth = slides[0].offsetWidth;
+    track.style.transform = `translateX(-${slideWidth * currentSlide}px)`;
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlide();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlide();
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  nextBtn.addEventListener("click", () => {
+    stopAutoSlide();
+    nextSlide();
+    startAutoSlide();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    stopAutoSlide();
+    prevSlide();
+    startAutoSlide();
+  });
+
+  window.addEventListener("resize", updateSlide);
+
+  updateSlide();
+  startAutoSlide();
+</script>

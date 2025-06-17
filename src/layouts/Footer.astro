@@ -1,237 +1,115 @@
 ---
-
 import Icon from "astro-icon";
-const isHomePage = Astro.url.pathname === "/";
+import { Image } from "astro:assets";
 ---
 
-<footer class="footer">
-
-
-    <div class="footer-top">
-        <div class="footer-top__information">
-            <img loading="lazy" src="/logo.webp" alt="Logo E.C.E.S" width="1170" height="486"/>
-            <p>
-                La contabilidad es nuestra pasión. Vivimos para servir. Fortalecemos tu proyectos y emprendimientos brindándote excelente asesoría administrativa y contable con mas de 20 años de experienci.
-            </p>
-            <div class="footer-top__social-networks">
-                <a
-                        aria-label="Click para ir a facebook"
-                        href="https://www.facebook.com/EstudioContableEmpresarial20/"
-                        target="_blank"
-                ><span>Facebook</span><Icon pack="mdi" name="facebook" size={20} /></a
-                >
-                <!--<a href="#"-->
-                <!--  ><span>Instagram</span><Icon-->
-                <!--    pack="mdi"-->
-                <!--    name="instagram"-->
-                <!--    size={20}-->
-                <!--  /></a-->
-                <!--&gt;-->
-                <!--<a href="#"-->
-                <!--  ><span>Tiktok</span><Icon-->
-                <!--    pack="ic"-->
-                <!--    name="baseline-tiktok"-->
-                <!--    size={20}-->
-                <!--  /></a-->
-                <!--&gt;-->
-                <a
-                        aria-label="Click para ir a Whatsapp"
-                        href="https://api.whatsapp.com/send/?phone=51935273393&text=Hola%2C%20vengo%20de%20mifanllantas.com%20%C2%BFPodr%C3%ADan%20brindarme%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20llantas%3F"
-                        target="_blank"
-                ><span>Whatsapp</span>
-                    <Icon pack="mdi" name="whatsapp" size={20} /></a
-                >
-            </div>
-        </div>
-        <div class="footer-top__sections">
-            <h3>Paginas</h3>
-            <ul>
-                <li><a href={isHomePage ? "#" : "/#"} rel="inicio">Inicio</a></li>
-                <li>
-                    <a href={isHomePage ? "#services" : "/#services"} rel="servicios">Servicios</a>
-                </li>
-                <li><a href={isHomePage ? "#about-us" : "/#about-us"}  rel="nosotros">Nosotros</a></li>
-                <li><a href={isHomePage ? "#plans" : "/#plans"} rel="planes">Planes</a></li>
-                <li><a href="/contact" rel="contacto">Contacto</a></li>
-            </ul>
-        </div>
-        <div class="footer-top__contacts">
-            <h3>Contacto</h3>
-            <div>
-                <span>Teléfono:</span>
-                <p>
-                    <Icon pack="mdi" name="cellphone" size={20} />
-                    <a href="tel:935 273 393" >+51 935 273 393</a>
-                </p>
-            </div>
-            <div>
-                <span>Correo:</span>
-                <p>
-                    <Icon pack="mdi" name="gmail" size={20} />
-                    <a href="mailto:servicontcontacto@gmail.com "
-                    >servicontcontacto@gmail.com</a
-                    >
-                </p>
-            </div>
-            <div>
-                <span>Dirección:</span>
-                <p>
-                    <Icon pack="mdi" name="location" size={20} />
-                    <a href="https://maps.app.goo.gl/Fj3UpNETN7e9sF157" target="_blank"
-                    >Calle Vargas 179, Chorrillos</a
-                    >
-                </p>
-            </div>
-        </div>
+<footer class="footer rounded-3xl my-4 bg-gradient-to-l to-primary from-accent">
+  <div
+    class="w-full flex flex-col lg:flex-row justify-evenly items-start gap-10 p-4"
+  >
+    <div
+      class="w-full lg:max-w-96 flex flex-col items-center gap-4 bg-white rounded-lg p-4"
+    >
+      <Image
+        src="/logo.webp"
+        alt="Logo de Servicont"
+        width="200"
+        height="150"
+        loading="lazy"
+      />
+      <p class="text-balance">
+        La contabilidad es nuestra pasión. Vivimos para servir. Fortalecemos tu
+        proyectos y emprendimientos brindándote excelente asesoría
+        administrativa y contable con mas de 20 años de experiencia.
+      </p>
+      <div class="flex gap-2 text-black">
+        <a
+          href="#"
+          target="_blank"
+          class="border border-primary bg-white hover:bg-primary rounded-full p-2 group duration-300"
+          ><Icon
+            name="facebook"
+            size={20}
+            class="text-primary group-hover:text-white"
+          /></a
+        >
+        <a
+          href="#"
+          target="_blank"
+          class="border border-primary bg-white hover:bg-primary rounded-full p-2 group duration-300"
+          ><Icon
+            name="instagram"
+            size={20}
+            class="text-primary group-hover:text-white"
+          /></a
+        >
+        <a
+          href="#"
+          target="_blank"
+          class="border border-primary bg-white hover:bg-primary rounded-full p-2 group duration-300"
+          ><Icon
+            name="tiktok"
+            size={20}
+            class="text-primary group-hover:text-white"
+          /></a
+        >
+        <a
+          href="https://api.whatsapp.com/send?phone=943581507&text=Me%20interesa%20saber%20más%20sobre%20sus%20servicios"
+          target="_blank"
+          class="border border-primary bg-white hover:bg-primary rounded-full p-2 group duration-300"
+        >
+          <Icon
+            name="whatsapp"
+            size={20}
+            class="text-primary group-hover:text-white"
+          /></a
+        >
+      </div>
     </div>
-
-    <div class="footer__bottom">
-        <p>
-            © 2024 Todos los derechos reservados <strong> SERVITEC CONTADORES </strong>-
-            Desarrollado por
-            <a href="https://agenciaservitec.com" target="_blank">Agencia Servitec</a>
-        </p>
+    <div class="space-y-4 text-white">
+      <h3 class="font-semibold">Secciones</h3>
+      <ul class="space-y-2">
+        <li><a href="/">Inicio</a></li>
+        <li>
+          <a href="/#services">Servicios</a>
+        </li>
+        <li>
+          <a href="/#about">Nosotros</a>
+        </li>
+        <li>
+          <a href="/#plans">Planes</a>
+        </li>
+        <li><a href="/#contact">Contacto</a></li>
+      </ul>
     </div>
+    <div class="space-y-4 text-white">
+      <h3 class="font-semibold">Contáctanos</h3>
+      <ul class="space-y-2">
+        <li class="flex gap-2 text-sm">
+          <Icon pack="mdi" name="cellphone" size={20} />
+          <a href="tel:935 273 393">+51 935 273 393</a>
+        </li>
+        <li class="flex gap-2 text-sm">
+          <Icon pack="mdi" name="gmail" size={20} />
+          <a href="mailto:servicontcontacto@gmail.com "
+            >servicontcontacto@gmail.com</a
+          >
+        </li>
+        <li class="flex gap-2 text-sm">
+          <Icon pack="mdi" name="location" size={20} />
+          <a href="https://maps.app.goo.gl/Fj3UpNETN7e9sF157" target="_blank"
+            >Calle Vargas 179 - Piso 1, Chorrillos</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="text-center text-sm text-white p-4 bg-white/10">
+    <p>
+      © 2024 Todos los derechos reservados <strong>SERVICONT</strong> - Desarrollado
+      por
+      <a href="https://agenciaservitec.com" target="_blank">Agencia Servitec</a>
+    </p>
+  </div>
 </footer>
-
-<style lang="scss">
-  .footer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background: linear-gradient(to right, rgba(30, 75, 115, 1), #0263a7);;
-
-    a {
-      text-decoration: none;
-      color: #fff;
-
-    }
-
-    .footer-top {
-      width: 100%;
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      gap: 2em;
-      margin: 3rem 0;
-      padding: 0 1em;
-
-      h3,
-      span {
-        color: white;
-      }
-
-      > div {
-        flex: 1 1 20em;
-      }
-
-      &__information {
-        background-color: #fff;
-        color: black;
-        padding: 0.8em;
-        border-radius: 0.5em;
-        max-width: 23rem;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-
-        img {
-          max-width: 200px;
-            max-height: 90px;
-          object-fit: contain;
-        }
-
-        p {
-          margin: 1em 0 2em;
-        }
-      }
-
-      &__social-networks {
-        display: flex;
-        justify-content: center;
-        gap: 1em;
-        a {
-          width: max-content;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border: 1px solid #0263a7;
-          border-radius: 50%;
-          padding: 0.5em;
-          color: #0263a7;
-
-          span {
-            display: none;
-          }
-        }
-      }
-
-      &__sections {
-        color: #fff;
-        h3 {
-          margin-bottom: 1em;
-        }
-
-        ul {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 1em;
-        }
-      }
-
-      &__contacts {
-        h3 {
-          margin-bottom: 1em;
-        }
-        div {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5em;
-          margin-bottom: 1em;
-          color: white;
-        }
-        p {
-          display: flex;
-          gap: 0.5em;
-          align-items: center;
-        }
-      }
-    }
-    &__bottom {
-      background: #0263a7;
-      width: 100%;
-      padding: 1em;
-
-      p {
-        text-align: center;
-        font-size: 0.9em;
-        color: white;
-        a {
-          text-decoration: none;
-        }
-      }
-    }
-  }
-
-  @media (min-width: 500px) {
-    footer {
-      .slogan-description {
-        max-width: 50%;
-      }
-    }
-  }
-
-  @media (min-width: 992px) {
-    .footer {
-      .footer-top {
-        > div {
-          flex: none;
-          p {
-            font-size: 0.9em;
-          }
-        }
-      }
-    }
-  }
-</style>

@@ -35,10 +35,10 @@ const isHomePage = Astro.url.pathname === "/";
       class="bg-[#f9f9f9] flex justify-between items-center rounded-full p-6 my-4"
     >
       <a href="/">
-        <img src="/logo.webp" alt="Logo E.C.E.S" class="w-40" />
+        <img src="/logo.webp" alt="Logo E.C.E.S" class="w-30" />
       </a>
 
-      <ul class="flex gap-6 text-xl">
+      <ul class="hidden md:flex gap-6 text-xl">
         <li>
           <a href={isHomePage ? "#services" : "/#services"} rel="servicios"
             >Servicios</a
@@ -52,10 +52,14 @@ const isHomePage = Astro.url.pathname === "/";
         <li>
           <a href={isHomePage ? "#plans" : "/#plans"} rel="planes">Planes</a>
         </li>
+        <li>
+          <a href="/contact" class="bg-[#0d8ceb] px-6 py-2 rounded-full"
+            >Contacto</a
+          >
+        </li>
       </ul>
 
-      <a href="/contact" class="bg-[#0d8ceb] px-6 py-2 rounded-full">Contacto</a
-      >
+      <Icon name="bars" size={25} class="md:hidden" />
 
       <!--<div class="item-menu-button">-->
       <!--  <Drawer client:visible>-->

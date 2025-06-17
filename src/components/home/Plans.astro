@@ -1,119 +1,40 @@
 ---
 import Icon from "astro-icon";
+
+import plans from "../../data-list/plans.json";
 ---
 
-<section id="plans">
-  <h2>Nuestros Planes</h2>
-  <div class="plans-items">
-    <article>
-      <div>
-        <img loading="lazy"  src="/images/plan-emprendedor.webp" alt=""/>
-      </div>
-      <div class="plan-info">
-        <p>Plan Emprendedor</p>
-        <p>
-          Un servicio que te ofrece llevar al día tu contabilidad especialmente
-          en el tema tributario con la asesoría especial que te permitirá
-          proyectarte llevar tu emprendimiento a un nivel profesional y
-          competitivo.
-        </p>
-      </div>
-      <a href="/quotes" rel="cotizacion">
-        <Icon class="icon" pack="ep" name="arrow-right-bold" size={15} />
-        <span> Quiero cotizacion</span>
-      </a>
-    </article>
-    <article>
-      <div>
-        <img loading="lazy" src="/images/plan-pyme.webp" alt="" />
-      </div>
-      <div class="plan-info">
-        <p>Plan Pyme</p>
-        <p>
-          Gestión administrativa y contable con alcance superior, ideada para
-          desarrollar aptitudes competitivas en tu empresa que arrojan como
-          resultado la expansión.
-        </p>
-      </div>
-            <a href="/quotes" rel="cotizacion">
-        <Icon class="icon" pack="ep" name="arrow-right-bold" size={15} />
-        <span> Quiero cotizacion</span>
-      </a>
-    </article>
-    <article>
-      <div>
-        <img loading="lazy" src="/images/plan-corporativo.webp" alt="" />
-      </div>
-      <div class="plan-info">
-        <p>Plan Corporativo</p>
-        <p>
-          Porque entendemos como cambian tus necesidades cuando abarcas varios
-          sectores al mismo tiempo, nuestros servicios tienen el alcance y la
-          velocidad que te brindan solidez y estabilidad en un mundo globalizado
-          y cambiante.
-        </p>
-      </div>
-            <a href="/quotes" rel="cotizacion">
-        <Icon class="icon" pack="ep" name="arrow-right-bold" size={15} />
-        <span> Quiero cotizacion</span>
-      </a>
-    </article>
+<section id="plans" class="py-10">
+  <h2 class="w-max rounded-full px-4 py-2 bg-[#f9f9f9] font-semibold mb-4">
+    (⚡) Planes
+  </h2>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+    {
+      plans.map(({ title, description, image }) => (
+        <article class="flex flex-col gap-4 rounded-xl overflow-hidden shadow">
+          <img
+            loading="lazy"
+            src={image}
+            alt={`Imagen de ${title}`}
+            class="w-full h-80 object-cover"
+          />
+          <div class="h-72 flex flex-col gap-4 p-4">
+            <div class="flex flex-col items-center gap-4">
+              <h3 class="text-sm rounded-full bg-secondary text-white px-4 py-2">
+                {title}
+              </h3>
+              <p>{description}</p>
+            </div>
+            <a
+              href="/#contact"
+              class="flex justify-center items-center gap-4 mt-auto rounded-full bg-accent text-white p-2"
+            >
+              <span>Quiero cotización</span>
+              <Icon name="arrow-top-right" size={15} />
+            </a>
+          </div>
+        </article>
+      ))
+    }
   </div>
 </section>
-
-<style>
-  section {
-    background: white;
-    width: 100%;
-    height: auto;
-    padding: 3em;
-  }
-
-  h2 {
-    color: #0d77c1;
-    font-size: 3em;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-bottom: 1em;
-    text-align: center;
-  }
-  .plans-items {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1em;
-
-    img {
-      width: 100%;
-      height: 18em;
-      object-fit: cover;
-    }
-
-    .plan-info {
-      p:first-child {
-        font-size: 1.5em;
-        font-weight: bold;
-        text-align: center;
-        padding: 1em 0;
-      }
-
-      p:nth-child(2) {
-        font-size: 1.2em;
-      }
-    }
-    a {
-      text-decoration: auto;
-      color: black;
-      border: 1px solid black;
-      border-radius: 2em;
-      padding: 0.3em 0.5em;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.2em;
-      margin-top: 1em;
-        span{
-            font-size: 0.8em;
-        }
-    }
-  }
-</style>
