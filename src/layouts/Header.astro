@@ -1,215 +1,46 @@
 ---
 import Icon from "astro-icon";
-import { IconFontAwesome } from "../components";
-import Drawer from "./Drawer";
-
-const isHomePage = Astro.url.pathname === "/";
+import { Image } from "astro:assets";
+import NavLink from "../components/NavLink.astro";
 ---
 
-<header>
+<header class="w-full z-50">
   <div>
-    <!--<div class="top-header">-->
-    <!--  <div class="contact-info">-->
-    <!--    <ul>-->
-    <!--      <li>-->
-    <!--        <div>-->
-    <!--          <a href="mailto:servicontcontacto@gmail.com" class="anchor-icon">-->
-    <!--            <Icon class="icon" pack="mdi" name="email" size={19} />-->
-    <!--            Email: servicontcontacto@gmail.com-->
-    <!--          </a>-->
-    <!--        </div>-->
-    <!--      </li>-->
-    <!--      <li>-->
-    <!--        <div>-->
-    <!--          <a href="tel:943581507" class="anchor-icon">-->
-    <!--            <Icon class="icon" pack="mdi" name="phone" size={19} />-->
-    <!--            Teléfono: 943 581 507-->
-    <!--          </a>-->
-    <!--        </div>-->
-    <!--      </li>-->
-    <!--    </ul>-->
-    <!--  </div>-->
-    <!--</div>-->
-
     <div
-      class="bg-[#f9f9f9] flex justify-between items-center rounded-full p-6 my-4"
+      class="bg-[#f9f9f9] flex justify-between items-center rounded-full p-4 my-3 text-xl"
     >
       <a href="/">
-        <img src="/logo.webp" alt="Logo E.C.E.S" class="w-30" />
+        <Image
+          src="/logo.webp"
+          alt="Logo de Servicont"
+          width="200"
+          height="100"
+          class="w-40"
+          loading="eager"
+        />
       </a>
 
-      <ul class="hidden md:flex gap-6 text-xl">
-        <li>
-          <a href={isHomePage ? "#services" : "/#services"} rel="servicios"
-            >Servicios</a
-          >
-        </li>
-        <li>
-          <a href={isHomePage ? "#about-us" : "/#about-us"} rel="nosotros"
-            >Nosotros</a
-          >
-        </li>
-        <li>
-          <a href={isHomePage ? "#plans" : "/#plans"} rel="planes">Planes</a>
-        </li>
-        <li>
-          <a href="/contact" class="bg-[#0d8ceb] px-6 py-2 rounded-full"
-            >Contacto</a
-          >
-        </li>
-      </ul>
+      <nav class="hidden md:flex">
+        <ul class="flex gap-8">
+          <li>
+            <NavLink link="/#services">Servicios</NavLink>
+          </li>
+          <li>
+            <NavLink link="/#about-us">Nosotros</NavLink>
+          </li>
+          <li>
+            <NavLink link="/#plans">Planes</NavLink>
+          </li>
+        </ul>
+      </nav>
+
+      <a
+        href="/#contact"
+        class="bg-secondary transition duration-300 transition duration-300 hover:transform hover:scale-105 text-white px-10 py-3 rounded-full"
+        >Contacto</a
+      >
 
       <Icon name="bars" size={25} class="md:hidden" />
-
-      <!--<div class="item-menu-button">-->
-      <!--  <Drawer client:visible>-->
-      <!--    <IconFontAwesome-->
-      <!--      aria-label="barramenu"-->
-      <!--      width="30px"-->
-      <!--      path="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"-->
-      <!--    />-->
-      <!--  </Drawer>-->
-      <!--</div>-->
     </div>
   </div>
 </header>
-
-<style lang="scss">
-  //MOBILE AND TABLET
-  .header-general {
-    width: 100%;
-    height: auto;
-    background: white;
-    display: flex;
-    justify-content: space-between;
-
-    .header-wrapper {
-      width: 100%;
-    }
-
-    .menu-bar {
-      padding: 0 0.3em;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .img-logo {
-        img {
-          max-width: 200px;
-          max-height: 90px;
-          object-fit: contain;
-        }
-      }
-
-      .item-menu-button {
-        background: #fff;
-        color: #000;
-      }
-    }
-    .top-header {
-      background: #0d77c1;
-      padding: 0.5em;
-      ul {
-        display: flex;
-        justify-content: space-between;
-        > li {
-          list-style: none;
-          span,
-          a {
-            font-size: 0.7em;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            color: white;
-            gap: 0.5em;
-          }
-        }
-      }
-
-      .anchor-icon {
-        .icon {
-          color: var(--color-primary);
-        }
-      }
-    }
-
-    .item-menu {
-      display: none;
-    }
-  }
-
-  //DESKTOP
-  @media (min-width: 920px) {
-    .header-general {
-      position: relative;
-      background: white;
-      top: 0;
-      z-index: 700;
-      width: 100%;
-      max-width: 1530px;
-      margin: auto;
-      .item-menu-button {
-        display: none;
-      }
-
-      .top-header {
-        background: #0d77c1;
-        padding: 0.7em;
-        ul {
-          justify-content: space-evenly;
-
-          > li {
-            span,
-            a {
-              display: flex;
-              align-items: center;
-              font-size: 1em;
-              color: white;
-              gap: 0.5em;
-            }
-          }
-        }
-      }
-
-      .menu-bar {
-        padding: 0.5em 0;
-        width: 100%;
-        display: flex;
-        background: #fff;
-        justify-content: space-between;
-        .img-logo {
-          img {
-            width: 12em;
-            height: auto;
-            object-fit: contain;
-            margin: 0.5em 2em;
-          }
-        }
-
-        .item-menu {
-          display: flex;
-          gap: 2em;
-          font-size: 1.2em;
-          font-weight: 500;
-
-          ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            gap: 1m;
-
-            > li {
-              padding: 0 1em;
-            }
-
-            li a {
-              text-decoration: none;
-              color: #0d77c1;
-            }
-          }
-        }
-      }
-    }
-  }
-</style>

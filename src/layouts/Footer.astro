@@ -5,7 +5,7 @@ import { Image } from "astro:assets";
 
 <footer class="footer rounded-3xl my-4 bg-gradient-to-l to-primary from-accent">
   <div
-    class="w-full flex flex-col lg:flex-row justify-evenly items-start gap-10 p-4"
+    class="w-full flex flex-col lg:flex-row justify-between items-start gap-10 p-4 text-xl"
   >
     <div
       class="w-full lg:max-w-96 flex flex-col items-center gap-4 bg-white rounded-lg p-4"
@@ -17,7 +17,7 @@ import { Image } from "astro:assets";
         height="150"
         loading="lazy"
       />
-      <p class="text-balance">
+      <p class="text-sm text-balance">
         La contabilidad es nuestra pasión. Vivimos para servir. Fortalecemos tu
         proyectos y emprendimientos brindándote excelente asesoría
         administrativa y contable con mas de 20 años de experiencia.
@@ -69,7 +69,6 @@ import { Image } from "astro:assets";
     <div class="space-y-4 text-white">
       <h3 class="font-semibold">Secciones</h3>
       <ul class="space-y-2">
-        <li><a href="/">Inicio</a></li>
         <li>
           <a href="/#services">Servicios</a>
         </li>
@@ -85,17 +84,17 @@ import { Image } from "astro:assets";
     <div class="space-y-4 text-white">
       <h3 class="font-semibold">Contáctanos</h3>
       <ul class="space-y-2">
-        <li class="flex gap-2 text-sm">
+        <li class="flex gap-2">
           <Icon pack="mdi" name="cellphone" size={20} />
           <a href="tel:935 273 393">+51 935 273 393</a>
         </li>
-        <li class="flex gap-2 text-sm">
+        <li class="flex gap-2">
           <Icon pack="mdi" name="gmail" size={20} />
           <a href="mailto:servicontcontacto@gmail.com "
             >servicontcontacto@gmail.com</a
           >
         </li>
-        <li class="flex gap-2 text-sm">
+        <li class="flex gap-2">
           <Icon pack="mdi" name="location" size={20} />
           <a href="https://maps.app.goo.gl/Fj3UpNETN7e9sF157" target="_blank"
             >Calle Vargas 179 - Piso 1, Chorrillos</a

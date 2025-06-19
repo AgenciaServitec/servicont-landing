@@ -1,0 +1,60 @@
+---
+
+---
+
+<div
+  class="w-full max-w-[25rem] lg:max-w-[32rem] bg-white rounded-3xl p-4 xl:p-6"
+>
+  <div class="mb-2 text-center">
+    <h2 class="text-xl md:text-2xl xl:text-3xl font-bold font-rethink">
+      Hablemos de tus finanzas
+    </h2>
+    <p>Estamos listos para ayudarte a crecer</p>
+  </div>
+  <form class="grid grid-cols-2 gap-4">
+    <div class="col-span-2 flex flex-col gap-2">
+      <label for="fullName" class="self-start">Apellidos y Nombres</label>
+      <input
+        type="text"
+        id="fullName"
+        placeholder="Ingrese sus apellidos y nombres"
+        class="px-4 py-3 rounded-lg bg-[#ebebeb]"
+      />
+    </div>
+    <div class="col-span-2 grid grid-cols-subgrid">
+      <div class="flex flex-col gap-2">
+        <label for="email" class="self-start">Correo electrónico</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Ingrese su correo"
+          class="px-4 py-3 rounded-lg bg-[#ebebeb]"
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="phoneNumber" class="self-start">Teléfono</label>
+        <input
+          type="number"
+          id="phoneNumber"
+          placeholder="Ingrese su teléfono"
+          class="px-4 py-3 rounded-lg bg-[#ebebeb]"
+        />
+      </div>
+    </div>
+    <div class="col-span-2 flex flex-col gap-2">
+      <label for="message" class="self-start">Mensaje</label>
+      <textarea
+        id="message"
+        name="textarea"
+        rows="4"
+        cols="60"
+        placeholder="Ingrese su mensaje"
+        class="px-4 py-3 rounded-lg bg-[#ebebeb]"></textarea>
+    </div>
+    <button
+      type="submit"
+      class="col-span-2 px-4 py-3 bg-secondary transition duration-300 hover:transform hover:scale-105 text-white rounded-full cursor-pointer"
+      >Enviar</button
+    >
+  </form>
+</div>

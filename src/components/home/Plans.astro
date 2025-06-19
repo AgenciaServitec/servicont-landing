@@ -1,21 +1,22 @@
 ---
 import Icon from "astro-icon";
+import { Image } from "astro:assets";
 
 import plans from "../../data-list/plans.json";
+import SectionName from "../SectionName.astro";
 ---
 
 <section id="plans" class="py-10">
-  <h2 class="w-max rounded-full px-4 py-2 bg-[#f9f9f9] font-semibold mb-4">
-    (⚡) Planes
-  </h2>
+  <SectionName title="Planes" />
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
     {
       plans.map(({ title, description, image }) => (
-        <article class="flex flex-col gap-4 rounded-xl overflow-hidden shadow">
-          <img
-            loading="lazy"
+        <article class="flex flex-col gap-4 rounded-xl overflow-hidden shadow-xl">
+          <Image
             src={image}
             alt={`Imagen de ${title}`}
+            width="200"
+            height="150"
             class="w-full h-80 object-cover"
           />
           <div class="h-72 flex flex-col gap-4 p-4">
@@ -27,7 +28,7 @@ import plans from "../../data-list/plans.json";
             </div>
             <a
               href="/#contact"
-              class="flex justify-center items-center gap-4 mt-auto rounded-full bg-accent text-white p-2"
+              class="flex justify-center items-center gap-4 mt-auto rounded-full bg-primary transition duration-300 hover:transform hover:scale-105 text-white p-4"
             >
               <span>Quiero cotización</span>
               <Icon name="arrow-top-right" size={15} />

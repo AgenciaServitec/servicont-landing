@@ -1,21 +1,30 @@
 ---
+import { Image } from "astro:assets";
 
+import SectionName from "../SectionName.astro";
 ---
 
 <section id="about-us" class="py-10">
-  <h2 class="w-max rounded-full px-4 py-2 bg-[#f9f9f9] font-semibold mb-4">
-    (⚡) Nosotros
-  </h2>
-  <h3 class="text-lg lg:text-3xl font-semibold mb-4">
+  <SectionName title="Nosotros" />
+  <h3 class="text-lg lg:text-4xl font-semibold mb-4">
     Comprometidos con tu orden contable y tu tranquilidad.
   </h3>
   <div class="flex flex-col md:flex-row justify-between gap-6 md:gap-10">
-    <div class="max-w-[60rem] flex flex-col gap-6">
-      <img
-        src="https://villamuzio.com/wp-content/uploads/2024/07/shutterstock_2357193485-1536x1024.jpg.webp"
-        class="w-full h-96 rounded-3xl object-cover"
-        alt="Nosotros"
-      />
+    <div class="max-w-[65rem] flex flex-col gap-6">
+      <div class="relative">
+        <Image
+          src="https://villamuzio.com/wp-content/uploads/2024/07/shutterstock_2357193485-1536x1024.jpg.webp"
+          alt="Imagen de dos contadores resolviendo un problema"
+          width="200"
+          height="150"
+          loading="lazy"
+          class="w-full h-[60svh] rounded-3xl object-cover"
+        />
+        <div
+          class="absolute left-0 top-0 w-full h-full bg-black/50 rounded-3xl"
+        >
+        </div>
+      </div>
       <p class="lg:text-lg xl:text-xl text-balance">
         La contabilidad es nuestra pasión. Vivimos para servir. Fortalecemos tu
         proyectos y emprendimientos brindándote excelente asesoría
