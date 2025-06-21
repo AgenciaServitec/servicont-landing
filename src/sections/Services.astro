@@ -1,17 +1,17 @@
 ---
 import Icon from "astro-icon";
-import { services } from "../../data-list";
+import { services } from "../data-list";
 import { Image } from "astro:assets";
-import SectionName from "../SectionName.astro";
+import SectionName from "../components/SectionName.astro";
 ---
 
 <section id="services" class="py-10">
-  <div class="flex justify-between items-center mb-4">
+  <div class="flex justify-between items-center">
     <SectionName title="Servicios" />
     <div class="space-x-4">
       <button
         id="prev"
-        class="border border-secondary bg-white hover:bg-secondary rounded-full p-4 cursor-pointer duration-300 group"
+        class="border border-secondary bg-white hover:bg-secondary rounded-full md:p-2 xl:p-4 cursor-pointer duration-300 group"
       >
         <Icon
           name="angle-left"
@@ -21,7 +21,7 @@ import SectionName from "../SectionName.astro";
       </button>
       <button
         id="next"
-        class="border border-secondary bg-white hover:bg-secondary rounded-full p-4 cursor-pointer duration-300 group"
+        class="border border-secondary bg-white hover:bg-secondary rounded-full md:p-2 xl:p-4 cursor-pointer duration-300 group"
       >
         <Icon
           name="angle-right"
@@ -31,27 +31,27 @@ import SectionName from "../SectionName.astro";
       </button>
     </div>
   </div>
-  <div class="w-full relative overflow-hidden justify-center gap-6">
+  <div class="w-full relative overflow-hidden flex justify-center gap-6">
     <div id="carousel-track" class="flex duration-300">
       {
         services.map(({ title, image, points }, index) => (
-          <article class="slide min-w-full flex flex-col xl:flex-row gap-2 xl:gap-6">
+          <article class="slide min-w-full flex items-center gap-4 xl:gap-6 ">
             <Image
               src={image}
               alt={`Imagen de ${title}`}
               width="200"
               height="200"
               loading="lazy"
-              class="xl:flex-1 w-full xl:w-60 h-80 xl:h-[80vh] rounded-3xl object-cover"
+              class="flex-1 w-60 h-80 xl:h-[80vh] rounded-3xl object-cover object-center"
             />
-            <div class="xl:flex-1 flex flex-col justify-between p-2 xl:p-6">
+            <div class="flex-1 flex flex-col justify-between p-2 xl:p-6">
               <div class="flex flex-col gap-4">
-                <span class="text-2xl xl:text-7xl font-semibold">
+                <span class="text-4xl xl:text-7xl font-semibold">
                   0{index + 1}
                 </span>
                 <h3 class="text-xl xl:text-5xl mb-4">{title}</h3>
               </div>
-              <ul class="flex flex-col gap-4">
+              <ul class="flex flex-col lg:gap-2 xl:gap-4">
                 {points.map((point) => (
                   <li class="xl:text-xl">⚡{point}</li>
                 ))}

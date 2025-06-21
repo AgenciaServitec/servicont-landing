@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon";
-import Form from "./Form.astro";
+import Form from "../components/Form.astro";
 ---
 
 <section
@@ -8,9 +8,9 @@ import Form from "./Form.astro";
   class="relative w-full min-h-[82svh] bg-[url('/images/hero.webp')] bg-cover bg-center rounded-3xl"
 >
   <div
-    class="absolute w-full h-full flex flex-col xl:flex-row justify-between gap-8 bg-black/50 p-4 lg:px-15 xl:px-10 xl:py-6 rounded-3xl"
+    class="absolute w-full h-full flex flex-col md:flex-row justify-between gap-8 bg-black/50 p-4 xl:px-10 xl:py-6 rounded-3xl"
   >
-    <div class="flex flex-col justify-center gap-6">
+    <div class="flex flex-col justify-center gap-2 xl:gap-6">
       <div class="space-y-2 xl:space-y-6 text-white">
         <div
           class="w-max border-2 border-white rounded-full px-4 py-2 backdrop-blur-lg text-sm xl:text-lg"
@@ -20,17 +20,17 @@ import Form from "./Form.astro";
         <div class="flex flex-col md:flex-row justify-between">
           <div class="space-y-2 xl:space-y-6">
             <h2
-              class="text-lg md:text-3xl lg:text-7xl font-rethink text-pretty font-semibold"
+              class="text-lg lg:text-4xl xl:text-7xl font-rethink text-pretty font-semibold"
             >
               Tu tranquilidad contable, nuestra responsabilidad
             </h2>
-            <p class="text-sm md:text-xl">
+            <p class="text-sm lg:text-lg xl:text-xl">
               Asesoría contable y tributaria para emprendedores y empresas
             </p>
           </div>
         </div>
       </div>
-      <div class="flex flex-col md:flex-row gap-2">
+      <div class="flex flex-col md:flex-row gap-2 text-sm">
         <a
           href="https://maps.app.goo.gl/cySjuW6LXcPMo14N7"
           target="_blank"

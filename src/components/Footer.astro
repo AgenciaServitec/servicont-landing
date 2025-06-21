@@ -5,10 +5,10 @@ import { Image } from "astro:assets";
 
 <footer class="footer rounded-3xl my-4 bg-gradient-to-l to-primary from-accent">
   <div
-    class="w-full flex flex-col lg:flex-row justify-between items-start gap-10 p-4 text-xl"
+    class="w-full flex flex-col lg:flex-row justify-between items-start gap-10 p-4 xl:p-10 lg:text-lg xl:text-xl"
   >
     <div
-      class="w-full lg:max-w-96 flex flex-col items-center gap-4 bg-white rounded-lg p-4"
+      class="w-full lg:max-w-96 flex flex-col items-center gap-4 bg-white rounded-3xl p-4"
     >
       <Image
         src="/logo.webp"
@@ -24,30 +24,36 @@ import { Image } from "astro:assets";
       </p>
       <div class="flex gap-2 text-black">
         <a
-          href="#"
+          href="https://www.facebook.com/"
           target="_blank"
           class="border border-primary bg-white hover:bg-primary rounded-full p-2 group duration-300"
-          ><Icon
+        >
+          <span class="hidden">Icono de facebook</span>
+          <Icon
             name="facebook"
             size={20}
             class="text-primary group-hover:text-white"
           /></a
         >
         <a
-          href="#"
+          href="https://www.instagram.com/"
           target="_blank"
           class="border border-primary bg-white hover:bg-primary rounded-full p-2 group duration-300"
-          ><Icon
+        >
+          <span class="hidden">Icono de instagram</span>
+          <Icon
             name="instagram"
             size={20}
             class="text-primary group-hover:text-white"
           /></a
         >
         <a
-          href="#"
+          href="https://www.tiktok.com/"
           target="_blank"
           class="border border-primary bg-white hover:bg-primary rounded-full p-2 group duration-300"
-          ><Icon
+        >
+          <span class="hidden">Icono de tiktok</span>
+          <Icon
             name="tiktok"
             size={20}
             class="text-primary group-hover:text-white"
@@ -58,6 +64,7 @@ import { Image } from "astro:assets";
           target="_blank"
           class="border border-primary bg-white hover:bg-primary rounded-full p-2 group duration-300"
         >
+          <span class="hidden">Icono de whatsapp</span>
           <Icon
             name="whatsapp"
             size={20}
@@ -68,7 +75,7 @@ import { Image } from "astro:assets";
     </div>
     <div class="space-y-4 text-white">
       <h3 class="font-semibold">Secciones</h3>
-      <ul class="space-y-2">
+      <ul class="space-y-2 text-base xl:text-lg">
         <li>
           <a href="/#services">Servicios</a>
         </li>
@@ -83,14 +90,14 @@ import { Image } from "astro:assets";
     </div>
     <div class="space-y-4 text-white">
       <h3 class="font-semibold">Contáctanos</h3>
-      <ul class="space-y-2">
+      <ul class="space-y-2 text-base xl:text-lg">
         <li class="flex gap-2">
           <Icon pack="mdi" name="cellphone" size={20} />
-          <a href="tel:935 273 393">+51 935 273 393</a>
+          <a href="tel:935273393" target="_blank">+51 935 273 393</a>
         </li>
         <li class="flex gap-2">
           <Icon pack="mdi" name="gmail" size={20} />
-          <a href="mailto:servicontcontacto@gmail.com "
+          <a href="mailto:servicontcontacto@gmail.com " target="_blank"
             >servicontcontacto@gmail.com</a
           >
         </li>

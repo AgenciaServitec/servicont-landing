@@ -1,7 +1,10 @@
 ---
-import Header from "./Header.astro";
-import Footer from "./Footer.astro";
-import { ButtonFloatingWhatsapp, ButtonFloatingContact } from "../components";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ButtonFloatingContact from "../components/ButtonFloatingContact.astro";
+import ButtonFloatingWhatsapp from "../components/ButtonFloatingWhatsapp.astro";
+import ContentWidth from "../components/ContentWidth.astro";
+
 interface Props {
   title?: string;
   description?: string;
@@ -10,7 +13,7 @@ interface Props {
 }
 
 import "../styles/global.css";
-import ContentWidth from "../components/ContentWidth.astro";
+import IconFontAwesome from "../components/ui/IconFontAwesome.astro";
 
 const {
   title = "Estudio Contable - Contador",
@@ -53,39 +56,11 @@ const {
     <!-- End Google Tag Manager (noscript) -->
     <ContentWidth>
       <Header />
-      <div class="main">
+      <main>
         <slot />
-      </div>
-      <!--<ButtonFloatingContact />-->
-      <!--<ButtonFloatingWhatsapp />-->
+      </main>
       <Footer />
+      <!--<ButtonFloatingWhatsapp />-->
     </ContentWidth>
-    <!--<style is:global lang="scss">-->
-    <!--  * {-->
-    <!--    margin: 0;-->
-    <!--    padding: 0;-->
-    <!--    box-sizing: border-box;-->
-    <!--    font-family: "Noto Sans Georgian Variable", sans-serif;-->
-    <!--    scroll-behavior: smooth;-->
-    <!--  }-->
-
-    <!--  body {-->
-    <!--    margin: 0;-->
-    <!--    font-size: 16px;-->
-    <!--  }-->
-
-    <!--  .general-wrapper {-->
-    <!--    max-width: 1530px;-->
-    <!--    margin: auto;-->
-    <!--    position: relative;-->
-    <!--    background-color: var(&#45;&#45;color-tertiary);-->
-    <!--  }-->
-
-    <!--  .main {-->
-    <!--    width: 100%;-->
-    <!--    height: auto;-->
-    <!--    position: relative;-->
-    <!--  }-->
-    <!--</style>-->
   </body>
 </html>

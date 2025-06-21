@@ -1,15 +1,15 @@
 ---
 import Icon from "astro-icon";
 import { Image } from "astro:assets";
-import NavLink from "../components/NavLink.astro";
+import NavLink from "./NavLink.astro";
 ---
 
 <header class="w-full z-50">
   <div>
     <div
-      class="bg-[#f9f9f9] flex justify-between items-center rounded-full p-4 my-3 text-xl"
+      class="bg-[#f9f9f9] flex justify-between items-center rounded-full p-4 my-3 text-lg xl:text-xl"
     >
-      <a href="/">
+      <a href="/public">
         <Image
           src="/logo.webp"
           alt="Logo de Servicont"
@@ -35,7 +35,7 @@ import NavLink from "../components/NavLink.astro";
       </nav>
 
       <a
-        href="/#contact"
+        href="/public#contact"
         class="bg-secondary transition duration-300 transition duration-300 hover:transform hover:scale-105 text-white px-10 py-3 rounded-full"
         >Contacto</a
       >

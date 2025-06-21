@@ -1,16 +1,18 @@
 ---
 import { Image } from "astro:assets";
 
-import SectionName from "../SectionName.astro";
+import SectionName from "../components/SectionName.astro";
 ---
 
 <section id="about-us" class="py-10">
   <SectionName title="Nosotros" />
-  <h3 class="text-lg lg:text-4xl font-semibold mb-4">
-    Comprometidos con tu orden contable y tu tranquilidad.
+  <h3 class="text-2xl lg:text-3xl xl:text-4xl font-semibold mb-4">
+    Comprometidos con tu orden contable y tu tranquilidad
   </h3>
   <div class="flex flex-col md:flex-row justify-between gap-6 md:gap-10">
-    <div class="max-w-[65rem] flex flex-col gap-6">
+    <div
+      class="max-w-[40rem] lg:max-w-[45rem] xl:max-w-[65rem] flex flex-col gap-6"
+    >
       <div class="relative">
         <Image
           src="https://villamuzio.com/wp-content/uploads/2024/07/shutterstock_2357193485-1536x1024.jpg.webp"

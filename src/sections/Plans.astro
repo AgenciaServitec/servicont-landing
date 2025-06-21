@@ -2,13 +2,13 @@
 import Icon from "astro-icon";
 import { Image } from "astro:assets";
 
-import plans from "../../data-list/plans.json";
-import SectionName from "../SectionName.astro";
+import plans from "../data-list/plans.json";
+import SectionName from "../components/SectionName.astro";
 ---
 
 <section id="plans" class="py-10">
   <SectionName title="Planes" />
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-10">
     {
       plans.map(({ title, description, image }) => (
         <article class="flex flex-col gap-4 rounded-xl overflow-hidden shadow-xl">
@@ -17,21 +17,21 @@ import SectionName from "../SectionName.astro";
             alt={`Imagen de ${title}`}
             width="200"
             height="150"
-            class="w-full h-80 object-cover"
+            class="w-full h-80 object-cover object-center"
           />
-          <div class="h-72 flex flex-col gap-4 p-4">
+          <div class="lg:h-[21rem] xl:h-72 flex flex-col gap-4 p-4">
             <div class="flex flex-col items-center gap-4">
               <h3 class="text-sm rounded-full bg-secondary text-white px-4 py-2">
                 {title}
               </h3>
-              <p>{description}</p>
+              <p class="text-balance">{description}</p>
             </div>
             <a
-              href="/#contact"
-              class="flex justify-center items-center gap-4 mt-auto rounded-full bg-primary transition duration-300 hover:transform hover:scale-105 text-white p-4"
+              href="/public#contact"
+              class="flex justify-center items-center gap-4 mt-auto rounded-full bg-primary transition duration-300 hover:transform hover:scale-105 lg:text-lg xl:text-xl text-white p-4"
             >
               <span>Quiero cotización</span>
-              <Icon name="arrow-top-right" size={15} />
+              <Icon name="arrow-top-right" size={20} />
             </a>
           </div>
         </article>
