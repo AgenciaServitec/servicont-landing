@@ -11,7 +11,7 @@ import SectionName from "../components/SectionName.astro";
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-10">
     {
       plans.map(({ title, description, image }) => (
-        <article class="flex flex-col gap-4 rounded-xl overflow-hidden shadow-xl">
+        <article class="flex flex-col gap-4 rounded-3xl overflow-hidden shadow-xl">
           <Image
             src={image}
             alt={`Imagen de ${title}`}
@@ -27,7 +27,7 @@ import SectionName from "../components/SectionName.astro";
               <p class="text-balance">{description}</p>
             </div>
             <a
-              href="/public#contact"
+              href="/#contact"
               class="flex justify-center items-center gap-4 mt-auto rounded-full bg-primary transition duration-300 hover:transform hover:scale-105 lg:text-lg xl:text-xl text-white p-4"
             >
               <span>Quiero cotización</span>
