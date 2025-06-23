@@ -5,54 +5,56 @@ import Form from "../components/Form.astro";
 
 <section
   id="hero"
-  class="relative w-full min-h-[82svh] bg-[url('/images/hero.webp')] bg-cover bg-center rounded-3xl"
+  class="w-full bg-[url('/images/hero.webp')] bg-cover bg-center rounded-3xl"
 >
   <div
-    class="absolute w-full h-full flex flex-col md:flex-row justify-between gap-8 bg-black/50 p-4 xl:px-10 xl:py-6 rounded-3xl"
+    class="w-full xl:h-full flex flex-col md:flex-row justify-between gap-6 bg-black/50 p-4 xl:px-10 xl:py-6 rounded-3xl"
   >
-    <div class="flex flex-col justify-center gap-2 xl:gap-6">
-      <div class="space-y-2 xl:space-y-6 text-white">
+    <div class="flex flex-col justify-center gap-6">
+      <div class="space-y-6 text-white">
         <div
-          class="w-max border-2 border-white rounded-full px-4 py-2 backdrop-blur-lg text-sm xl:text-lg"
+          class="w-max border-2 border-white rounded-full px-4 py-2 backdrop-blur-lg text-xs lg:text-sm xl:text-base"
         >
           <span>Confianza | Orden | Cumplimiento</span>
         </div>
         <div class="flex flex-col md:flex-row justify-between">
           <div class="space-y-2 xl:space-y-6">
             <h2
-              class="text-lg lg:text-4xl xl:text-7xl font-rethink text-pretty font-semibold"
+              class="text-2xl lg:text-4xl xl:text-7xl font-rethink text-pretty font-semibold"
             >
               Tu tranquilidad contable, nuestra responsabilidad
             </h2>
-            <p class="text-sm lg:text-lg xl:text-xl">
+            <p class="xl:text-lg">
               Asesoría contable y tributaria para emprendedores y empresas
             </p>
           </div>
         </div>
       </div>
-      <div class="flex flex-col md:flex-row gap-2 text-sm">
+      <div
+        class="flex flex-col items-start lg:flex-row gap-2 text-xs lg:text-sm xl:text-base"
+      >
         <a
           href="https://maps.app.goo.gl/cySjuW6LXcPMo14N7"
           target="_blank"
-          class="flex items-center gap-2 p-2 lg:px-4 lg:py-2 bg-white rounded-full transition duration-300 hover:transform hover:scale-105"
+          class="flex items-center gap-2 px-4 py-2 bg-white rounded-full transition duration-300 hover:transform hover:scale-105"
         >
           <span> Vargas 179 - Piso 1, Chorrillos</span>
           <span
-            class="w-7 h-7 flex justify-center items-center rounded-full bg-black"
+            class="p-1 flex justify-center items-center rounded-full bg-black"
           >
-            <Icon name="location-arrow" class="text-white" size={15} />
+            <Icon name="location-arrow" class="w-3 text-white" />
           </span>
         </a>
         <a
           href="tel:943581507"
           target="_blank"
-          class="flex items-center gap-2 p-2 lg:px-4 lg:py-2 bg-white rounded-full transition duration-300 hover:transform hover:scale-105"
+          class="flex items-center gap-2 px-4 py-2 bg-white rounded-full transition duration-300 hover:transform hover:scale-105"
         >
           <span> Llámanos</span>
           <span
-            class="w-7 h-7 flex justify-center items-center rounded-full bg-black"
+            class="p-1 flex justify-center items-center rounded-full bg-black"
           >
-            <Icon name="phone" size={15} class="text-white" />
+            <Icon name="phone" class="w-3 text-white" />
           </span>
         </a>
       </div>
