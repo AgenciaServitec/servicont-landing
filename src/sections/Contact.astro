@@ -1,0 +1,16 @@
+---
+import Form from "../components/Form.astro";
+import SectionName from "../components/SectionName.astro";
+import ContentWidth from "../components/ContentWidth.astro";
+---
+
+<section id="contact" class="py-10">
+  <ContentWidth>
+    <SectionName title="Contacto" />
+    <div
+      class="w-full flex items-center p-4 xl:p-10 bg-[url('/images/contact.jpg')] bg-center xl:bg-right rounded-3xl"
+    >
+      <Form />
+    </div>
+  </ContentWidth>
+</section>

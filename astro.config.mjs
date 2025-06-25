@@ -1,23 +1,16 @@
 import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
-import netlify from "@astrojs/netlify/functions";
-import partytown from "@astrojs/partytown";
+import tailwindcss from "@tailwindcss/vite";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [
-        react(),
-        partytown({
-            config: {
-                forward: ["dataLayer.push"],
-            },
-        }),
-    ],
-    build: {
-        inlineStylesheets: "always",
-    },
-    compressHTML: true,
-    prefetch: true,
-    output: "server",
-    adapter: netlify(),
+  integrations: [icon()],
+  build: {
+    inlineStylesheets: "always",
+  },
+  compressHTML: true,
+  prefetch: true,
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

@@ -1,0 +1,75 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+import NavLink from "./NavLink.astro";
+import Navbar from "./Navbar.astro";
+import ContentWidth from "./ContentWidth.astro";
+---
+
+<header class="w-full sticky top-0 left-0 z-50 overflow-hidden">
+  <ContentWidth>
+    <div
+      class="bg-[#f9f9f9] flex justify-between items-center rounded-full p-4 my-3 text-base xl:text-xl"
+    >
+      <a href="/">
+        <h1 class="hidden">Estudio Contable Contador | Servicont</h1>
+        <Image
+          src="/logo.webp"
+          alt="Logo de Servicont"
+          width="200"
+          height="100"
+          class="w-40"
+          loading="eager"
+        />
+      </a>
+
+      <nav class="hidden md:flex">
+        <ul class="flex gap-8">
+          <li>
+            <NavLink link="/#services">Servicios</NavLink>
+          </li>
+          <li>
+            <NavLink link="/#about">Nosotros</NavLink>
+          </li>
+          <li>
+            <NavLink link="/#plans">Planes</NavLink>
+          </li>
+        </ul>
+      </nav>
+
+      <a
+        href="/#contact"
+        class="hidden md:flex bg-secondary transition duration-300 hover:transform hover:scale-105 text-white px-10 py-3 rounded-full"
+        >Contacto</a
+      >
+
+      <Icon id="btnActiveNavbar" name="bars" size={25} class="md:hidden" />
+    </div>
+  </ContentWidth>
+  <Navbar />
+</header>
+
+<script>
+  const navbar = document.querySelector("#navbar") as HTMLDialogElement;
+  const mobileItems = navbar.querySelectorAll(".item-nav");
+
+  const btnActiveNavbar = document.querySelector(
+    "#btnActiveNavbar",
+  ) as HTMLElement;
+  const btnCloseNavbar = document.querySelector(
+    "#btnCloseNavbar",
+  ) as HTMLElement;
+
+  btnActiveNavbar.addEventListener("click", () => {
+    navbar.showModal();
+  });
+
+  btnCloseNavbar.addEventListener("click", () => {
+    navbar.close();
+  });
+
+  const toggleMenu = () => (navbar.open ? navbar.close() : navbar.showModal());
+
+  mobileItems?.forEach((item) => item.addEventListener("click", toggleMenu));
+</script>

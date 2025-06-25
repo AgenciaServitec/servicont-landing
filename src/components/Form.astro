@@ -1,0 +1,124 @@
+---
+
+---
+
+<div
+  id="contact"
+  class="w-full max-w-[25rem] xl:max-w-[32rem] bg-white rounded-3xl p-4 xl:p-6"
+>
+  <div class="mb-2 text-center">
+    <h2 class="text-lg md:text-xl xl:text-3xl font-bold font-rethink">
+      Hablemos de tus finanzas
+    </h2>
+    <p class="text-xs md:text-sm lg:text-base">
+      Estamos listos para ayudarte a crecer
+    </p>
+  </div>
+  <form
+    id="formContact"
+    method="POST"
+    class="grid grid-cols-2 gap-2 text-xs md:text-sm xl:text-base"
+  >
+    <div class="col-span-2 flex flex-col gap-2">
+      <label for="fullName" class="self-start">Apellidos y Nombres</label>
+      <input
+        type="text"
+        id="fullName"
+        placeholder="Ingrese sus apellidos y nombres"
+        required
+        class="px-4 py-3 rounded-lg bg-[#ebebeb]"
+      />
+    </div>
+    <div class="col-span-2 flex flex-col gap-2">
+      <label for="email" class="self-start">Correo electrónico</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Ingrese su correo"
+        required
+        class="px-4 py-3 rounded-lg bg-[#ebebeb]"
+      />
+    </div>
+    <div class="col-span-2 flex flex-col gap-2">
+      <label for="phoneNumber" class="self-start">Teléfono</label>
+      <input
+        type="number"
+        id="phoneNumber"
+        placeholder="Ingrese su teléfono"
+        required
+        class="px-4 py-3 rounded-lg bg-[#ebebeb]"
+      />
+    </div>
+    <div class="col-span-2 flex flex-col gap-2">
+      <label for="message" class="self-start">Mensaje</label>
+      <textarea
+        id="message"
+        name="textarea"
+        rows="4"
+        cols="60"
+        placeholder="Ingrese su mensaje"
+        required
+        class="px-4 py-3 rounded-lg bg-[#ebebeb]"></textarea>
+    </div>
+    <button
+      type="submit"
+      class="col-span-2 px-4 py-3 bg-secondary transition duration-300 hover:transform hover:scale-105 text-white rounded-full cursor-pointer"
+      >Enviar</button
+    >
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById("formContact") as HTMLFormElement;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const fullName = form.children[0].children[1].value.trim();
+    const email = form.children[1].children[1].value.trim();
+    const phoneNumber = form.children[2].children[1].value.trim();
+    const message = form.children[3].children[1].value.trim();
+    const button = form.children[4];
+
+    const contact = {
+      fullName,
+      email,
+      phone: {
+        countryCode: "+51",
+        number: phoneNumber,
+      },
+      message,
+      hostname: "estudio-contable-contador.com",
+    };
+
+    try {
+      button.disabled = true;
+      button.textContent = "Cargando...";
+      button.classList.add("opacity-60", "cursor-not-allowed");
+
+      const result = await fetch(
+        "https://api-servitecsales.web.app/emails/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({ contact }),
+        },
+      );
+
+      console.log(result);
+
+      // form.reset();
+
+      // window.location.href = "/success";
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      button.disabled = false;
+      button.textContent = "Envíar Mensaje";
+      button.classList.remove("opacity-60", "cursor-not-allowed");
+    }
+  });
+</script>
