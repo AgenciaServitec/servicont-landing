@@ -1,9 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import ButtonFloatingContact from "../components/ButtonFloatingContact.astro";
 import ButtonFloatingWhatsapp from "../components/ButtonFloatingWhatsapp.astro";
-import ContentWidth from "../components/ContentWidth.astro";
 
 interface Props {
   title?: string;
@@ -13,6 +11,7 @@ interface Props {
 }
 
 import "../styles/global.css";
+import ContentWidth from "../components/ContentWidth.astro";
 
 const {
   title = "Estudio Contable - Contador",
@@ -59,6 +58,8 @@ const {
       <slot />
     </main>
     <Footer />
-    <!--<ButtonFloatingWhatsapp />-->
+    <ContentWidth>
+      <ButtonFloatingWhatsapp />
+    </ContentWidth>
   </body>
 </html>

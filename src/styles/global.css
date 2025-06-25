@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
-@theme{
-    --font-sans: 'DM Sans Variable', sans-serif;
-    --font-rethink: 'Rethink Sans Variable', sans-serif;
+@theme {
+  --font-sans: "DM Sans Variable", sans-serif;
+  --font-rethink: "Rethink Sans Variable", sans-serif;
 
-    --color-primary: #066bb9;
-    --color-secondary: #020817;
-    --color-accent: #0192ff;
-    --color-muted: #f9f9f9;
+  --color-primary: #066bb9;
+  --color-secondary: #020817;
+  --color-accent: #0192ff;
+  --color-muted: #f9f9f9;
 }

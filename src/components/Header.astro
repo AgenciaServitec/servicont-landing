@@ -7,12 +7,13 @@ import Navbar from "./Navbar.astro";
 import ContentWidth from "./ContentWidth.astro";
 ---
 
-<header class="w-full fixed top-0 left-0 z-50">
+<header class="w-full sticky top-0 left-0 z-50 overflow-hidden">
   <ContentWidth>
     <div
       class="bg-[#f9f9f9] flex justify-between items-center rounded-full p-4 my-3 text-base xl:text-xl"
     >
       <a href="/">
+        <h1 class="hidden">Estudio Contable Contador | Servicont</h1>
         <Image
           src="/logo.webp"
           alt="Logo de Servicont"
