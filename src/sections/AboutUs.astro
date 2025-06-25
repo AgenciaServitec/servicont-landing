@@ -2,65 +2,74 @@
 import { Image } from "astro:assets";
 
 import SectionName from "../components/SectionName.astro";
+import ContentWidth from "../components/ContentWidth.astro";
 ---
 
-<section id="about-us" class="py-10">
-  <SectionName title="Nosotros" />
-  <h3 class="text-2xl lg:text-3xl xl:text-4xl font-semibold mb-4">
-    Comprometidos con tu orden contable y tu tranquilidad
-  </h3>
-  <div class="flex flex-col md:flex-row justify-between gap-6 md:gap-10">
-    <div
-      class="max-w-[40rem] lg:max-w-[45rem] xl:max-w-[65rem] flex flex-col gap-6"
-    >
-      <div class="relative">
-        <Image
-          src="https://villamuzio.com/wp-content/uploads/2024/07/shutterstock_2357193485-1536x1024.jpg.webp"
-          alt="Imagen de dos contadores resolviendo un problema"
-          width="200"
-          height="150"
-          loading="lazy"
-          class="w-full h-[60svh] rounded-3xl object-cover"
-        />
+<ContentWidth>
+  <section id="about" class="py-10">
+    <div>
+      <SectionName title="Nosotros" />
+      <h3 class="text-2xl lg:text-3xl xl:text-4xl font-semibold mb-4">
+        Comprometidos con tu orden contable y tu tranquilidad
+      </h3>
+      <div class="flex flex-col md:flex-row justify-between gap-6 md:gap-10">
         <div
-          class="absolute left-0 top-0 w-full h-full bg-black/50 rounded-3xl"
+          class="max-w-[40rem] lg:max-w-[45rem] xl:max-w-[65rem] flex flex-col gap-6"
         >
+          <div class="relative">
+            <Image
+              src="https://villamuzio.com/wp-content/uploads/2024/07/shutterstock_2357193485-1536x1024.jpg.webp"
+              alt="Imagen de dos contadores resolviendo un problema"
+              width="200"
+              height="150"
+              loading="lazy"
+              class="w-full h-[60svh] rounded-3xl object-cover"
+            />
+            <div
+              class="absolute left-0 top-0 w-full h-full bg-black/50 rounded-3xl"
+            >
+            </div>
+          </div>
+          <p class="lg:text-lg xl:text-xl text-balance">
+            La contabilidad es nuestra pasión. Vivimos para servir. Fortalecemos
+            tu proyectos y emprendimientos brindándote excelente asesoría
+            administrativa y contable con mas de 20 años de experiencia.
+            <strong>¡Tenemos como prioridad brindarte el mejor servicio!</strong
+            >
+          </p>
+        </div>
+        <div
+          class="flex flex-row md:flex-col justify-between xl:gap-10 text-center md:text-left"
+        >
+          <div class="flex flex-col gap-2">
+            <span
+              class="text-2xl font-semibold md:text-4xl lg:text-5xl xl:text-7xl"
+              >250+</span
+            >
+            <span class="text-xs md:text-base lg:text-lg xl:text-2xl"
+              >Clientes atendidos</span
+            >
+          </div>
+          <div class="flex flex-col gap-2">
+            <span
+              class="text-2xl font-semibold md:text-4xl lg:text-5xl xl:text-7xl"
+              >98%</span
+            >
+            <span class="text-xs md:text-base lg:text-lg xl:text-2xl"
+              >Tasa de retención</span
+            >
+          </div>
+          <div class="flex flex-col gap-2">
+            <span
+              class="text-2xl font-semibold md:text-4xl lg:text-5xl xl:text-7xl"
+              >&lt;24H</span
+            >
+            <span class="text-xs md:text-base lg:text-lg xl:text-2xl"
+              >Tiempo de respuesta</span
+            >
+          </div>
         </div>
       </div>
-      <p class="lg:text-lg xl:text-xl text-balance">
-        La contabilidad es nuestra pasión. Vivimos para servir. Fortalecemos tu
-        proyectos y emprendimientos brindándote excelente asesoría
-        administrativa y contable con mas de 20 años de experiencia.
-        <strong>¡Tenemos como prioridad brindarte el mejor servicio!</strong>
-      </p>
     </div>
-    <div
-      class="flex flex-row md:flex-col justify-between xl:gap-10 text-center md:text-left"
-    >
-      <div class="flex flex-col gap-2">
-        <span class="text-2xl font-semibold md:text-4xl lg:text-5xl xl:text-7xl"
-          >250+</span
-        >
-        <span class="text-xs md:text-base lg:text-lg xl:text-2xl"
-          >Clientes atendidos</span
-        >
-      </div>
-      <div class="flex flex-col gap-2">
-        <span class="text-2xl font-semibold md:text-4xl lg:text-5xl xl:text-7xl"
-          >98%</span
-        >
-        <span class="text-xs md:text-base lg:text-lg xl:text-2xl"
-          >Tasa de retención</span
-        >
-      </div>
-      <div class="flex flex-col gap-2">
-        <span class="text-2xl font-semibold md:text-4xl lg:text-5xl xl:text-7xl"
-          >&lt;24H</span
-        >
-        <span class="text-xs md:text-base lg:text-lg xl:text-2xl"
-          >Tiempo de respuesta</span
-        >
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</ContentWidth>

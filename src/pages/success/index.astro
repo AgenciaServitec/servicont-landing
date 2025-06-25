@@ -1,5 +1,7 @@
 ---
-import { BaseLayout } from "../../layouts";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import ContentWidth from "../../components/ContentWidth.astro";
 ---
 
 <BaseLayout title="Mensaje exitoso">
@@ -11,21 +13,31 @@ import { BaseLayout } from "../../layouts";
   <!--        'currency': 'PEN'-->
   <!--    });-->
   <!--</script>-->
-
-  <main>
-    <section class="success">
-      <div class="success__img">
-        <img loading="lazy" src="/images/success.webp" alt="Exitoso" />
+  <section>
+    <ContentWidth>
+      <div
+        class="min-h-[80svh] flex flex-col md:flex-row justify-center items-center gap-10"
+      >
+        <Image
+          src="/images/success.jpg"
+          alt="Image de un contador y un cliente llegando a un acuerdo."
+          width="200"
+          height="100"
+          class="w-full md:max-w-[22rem] xl:max-w-[30rem] rounded-3xl object-cover object-center"
+          loading="lazy"
+        />
+        <div class="flex flex-col items-center text-center">
+          <h2 class="text-2xl">Mensaje enviado exitosamente</h2>
+          <p class="mb-4">Nos comunicaremos en breve</p>
+          <a
+            href="/"
+            class="rounded-full bg-secondary text-white px-4 py-2 lg:px-6 lg:py-4"
+            >Regresar a inicio</a
+          >
+        </div>
       </div>
-      <div class="success__text">
-        <h2 class="success__text-title">Mensaje enviado exitosamente</h2>
-        <p class="success__text-description">Nos comunicaremos en breve</p>
-      </div>
-    </section>
-    <div class="success-btn">
-      <a href="/">Regresar a inicio</a>
-    </div>
-  </main>
+    </ContentWidth>
+  </section>
 </BaseLayout>
 
 <style lang="scss">

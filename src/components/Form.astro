@@ -3,6 +3,7 @@
 ---
 
 <div
+  id="contact"
   class="w-full max-w-[25rem] xl:max-w-[32rem] bg-white rounded-3xl p-4 xl:p-6"
 >
   <div class="mb-2 text-center">
@@ -13,13 +14,18 @@
       Estamos listos para ayudarte a crecer
     </p>
   </div>
-  <form class="grid grid-cols-2 gap-2 text-xs md:text-sm xl:text-base">
+  <form
+    id="formContact"
+    method="POST"
+    class="grid grid-cols-2 gap-2 text-xs md:text-sm xl:text-base"
+  >
     <div class="col-span-2 flex flex-col gap-2">
       <label for="fullName" class="self-start">Apellidos y Nombres</label>
       <input
         type="text"
         id="fullName"
         placeholder="Ingrese sus apellidos y nombres"
+        required
         class="px-4 py-3 rounded-lg bg-[#ebebeb]"
       />
     </div>
@@ -29,6 +35,7 @@
         type="email"
         id="email"
         placeholder="Ingrese su correo"
+        required
         class="px-4 py-3 rounded-lg bg-[#ebebeb]"
       />
     </div>
@@ -38,6 +45,7 @@
         type="number"
         id="phoneNumber"
         placeholder="Ingrese su teléfono"
+        required
         class="px-4 py-3 rounded-lg bg-[#ebebeb]"
       />
     </div>
@@ -49,6 +57,7 @@
         rows="4"
         cols="60"
         placeholder="Ingrese su mensaje"
+        required
         class="px-4 py-3 rounded-lg bg-[#ebebeb]"></textarea>
     </div>
     <button
@@ -58,3 +67,58 @@
     >
   </form>
 </div>
+
+<script>
+  const form = document.getElementById("formContact") as HTMLFormElement;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const fullName = form.children[0].children[1].value.trim();
+    const email = form.children[1].children[1].value.trim();
+    const phoneNumber = form.children[2].children[1].value.trim();
+    const message = form.children[3].children[1].value.trim();
+    const button = form.children[4];
+
+    const contact = {
+      fullName,
+      email,
+      phone: {
+        countryCode: "+51",
+        number: phoneNumber,
+      },
+      message,
+      hostname: "estudio-contable-contador.com",
+    };
+
+    try {
+      button.disabled = true;
+      button.textContent = "Cargando...";
+      button.classList.add("opacity-60", "cursor-not-allowed");
+
+      const result = await fetch(
+        "https://api-servitecsales.web.app/emails/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({ contact }),
+        },
+      );
+
+      console.log(result);
+
+      // form.reset();
+
+      // window.location.href = "/success";
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      button.disabled = false;
+      button.textContent = "Envíar Mensaje";
+      button.classList.remove("opacity-60", "cursor-not-allowed");
+    }
+  });
+</script>

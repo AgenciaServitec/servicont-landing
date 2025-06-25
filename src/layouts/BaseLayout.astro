@@ -13,7 +13,6 @@ interface Props {
 }
 
 import "../styles/global.css";
-import IconFontAwesome from "../components/ui/IconFontAwesome.astro";
 
 const {
   title = "Estudio Contable - Contador",
@@ -49,18 +48,17 @@ const {
     <title>{title}</title>
   </head>
 
-  <body class="">
+  <body>
     <!-- Google Tag Manager (noscript) -->
     <!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJ928BF5"-->
     <!--height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
     <!-- End Google Tag Manager (noscript) -->
-    <ContentWidth>
-      <Header />
-      <main>
-        <slot />
-      </main>
-      <Footer />
-      <!--<ButtonFloatingWhatsapp />-->
-    </ContentWidth>
+
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <!--<ButtonFloatingWhatsapp />-->
   </body>
 </html>

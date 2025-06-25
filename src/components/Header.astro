@@ -1,12 +1,14 @@
 ---
-import Icon from "astro-icon";
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
 import NavLink from "./NavLink.astro";
+import Navbar from "./Navbar.astro";
+import ContentWidth from "./ContentWidth.astro";
 ---
 
-<header class="w-full z-50">
-  <div>
+<header class="w-full fixed top-0 left-0 z-50">
+  <ContentWidth>
     <div
       class="bg-[#f9f9f9] flex justify-between items-center rounded-full p-4 my-3 text-base xl:text-xl"
     >
@@ -27,7 +29,7 @@ import NavLink from "./NavLink.astro";
             <NavLink link="/#services">Servicios</NavLink>
           </li>
           <li>
-            <NavLink link="/#about-us">Nosotros</NavLink>
+            <NavLink link="/#about">Nosotros</NavLink>
           </li>
           <li>
             <NavLink link="/#plans">Planes</NavLink>
@@ -41,7 +43,32 @@ import NavLink from "./NavLink.astro";
         >Contacto</a
       >
 
-      <Icon name="bars" size={25} class="md:hidden" />
+      <Icon id="btnActiveNavbar" name="bars" size={25} class="md:hidden" />
     </div>
-  </div>
+  </ContentWidth>
+  <Navbar />
 </header>
+
+<script>
+  const navbar = document.querySelector("#navbar") as HTMLDialogElement;
+  const mobileItems = navbar.querySelectorAll(".item-nav");
+
+  const btnActiveNavbar = document.querySelector(
+    "#btnActiveNavbar",
+  ) as HTMLElement;
+  const btnCloseNavbar = document.querySelector(
+    "#btnCloseNavbar",
+  ) as HTMLElement;
+
+  btnActiveNavbar.addEventListener("click", () => {
+    navbar.showModal();
+  });
+
+  btnCloseNavbar.addEventListener("click", () => {
+    navbar.close();
+  });
+
+  const toggleMenu = () => (navbar.open ? navbar.close() : navbar.showModal());
+
+  mobileItems?.forEach((item) => item.addEventListener("click", toggleMenu));
+</script>

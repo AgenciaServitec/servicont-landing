@@ -1,0 +1,75 @@
+---
+import { Icon } from "astro-icon/components";
+
+import SocialIcon from "../components/SocialIcon.astro";
+---
+
+<dialog
+  role="dialog"
+  aria-modal="true"
+  id="navbar"
+  class="flex flex-col gap-6 bg-accent z-50 max-h-[80vh] w-full max-w-full translate-x-0 duration-300 lg:hidden starting:translate-x-full [&:not([open])]:translate-x-full p-4 text-white"
+>
+  <Icon
+    id="btnCloseNavbar"
+    name="close"
+    size={25}
+    class="self-end text-white cursor-pointer"
+  />
+  <nav>
+    <ul class="flex flex-col gap-2 text-white font-bold">
+      <li>
+        <a
+          href="/#services"
+          class="item-nav block p-2 hover:bg-white hover:text-secondary-light rounded-lg duration-300"
+          >Servicios</a
+        >
+      </li>
+      <li>
+        <a
+          href="/#about"
+          class="item-nav block p-2 hover:bg-white hover:text-secondary-light rounded-lg duration-300"
+          >Nosotros</a
+        >
+      </li>
+      <li>
+        <a
+          href="/#plans"
+          class="item-nav block p-2 hover:bg-white hover:text-secondary-light rounded-lg duration-300"
+          >Planes</a
+        >
+      </li>
+      <li>
+        <a
+          href="/#contact"
+          class="item-nav block p-2 bg-white/50 hover:bg-white hover:text-secondary-light rounded-lg duration-300"
+          >Contacto</a
+        >
+      </li>
+    </ul>
+  </nav>
+  <div
+    class="flex flex-col items-center gap-4 bg-primary px-2 py-4 rounded-lg text-sm border border-dashed border-secondary"
+  >
+    <div class="flex flex-wrap gap-4">
+      <a href="tel:943581507" class="flex items-center gap-2">
+        <Icon name="phone" size={20} class="text-secondary" />
+        <span>943 581 507</span>
+      </a>
+      <a
+        href="mailto:servicontcontacto@gmail.com"
+        class="flex items-center gap-2"
+      >
+        <Icon name="email" size={20} class="text-secondary" />
+        <span>servicontcontacto@gmail.com</span>
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <SocialIcon
+        name="whatsapp"
+        link="https://api.whatsapp.com/send?phone=943581507&text=Me%20interesa%20saber%20más%20sobre%20sus%20servicios"
+      />
+      <SocialIcon name="facebook" />
+    </div>
+  </div>
+</dialog>
