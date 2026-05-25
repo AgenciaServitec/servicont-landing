@@ -81,11 +81,14 @@
     const button = form.children[4];
 
     const contact = {
-      fullName,
-      email,
-      phone: {
-        countryCode: "+51",
-        number: phoneNumber,
+      category: "contact",
+      client: {
+        fullName,
+        email,
+        phone: {
+          prefix: "+51",
+          number: phoneNumber,
+        },
       },
       message,
       hostname: "estudio-contable-contador.com",
@@ -97,22 +100,20 @@
       button.classList.add("opacity-60", "cursor-not-allowed");
 
       const result = await fetch(
-        "https://api-servitecsales.web.app/emails/contact",
+        "https://api-servitecsales.web.app/entries/contact",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body: JSON.stringify({ contact }),
+          body: JSON.stringify(contact),
         },
       );
 
-      console.log(result);
+      form.reset();
 
-      // form.reset();
-
-      // window.location.href = "/success";
+      window.location.href = "/success";
     } catch (error) {
       console.error("Error:", error);
     } finally {
